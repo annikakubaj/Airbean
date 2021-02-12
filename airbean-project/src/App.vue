@@ -1,17 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-<<<<<<< HEAD
       <router-link to="/">LANDING</router-link> |
       <router-link to="/meny">MENY</router-link> |
       <router-link to="/minProfil">MIN PROFIL</router-link> |
       <router-link to="/orderstatus">ORDERSTATUS</router-link> |
       <router-link to="/status">STATUS</router-link> |
-      <router-link to="/vartKaffe">VÅRT KAFFE</router-link> |
-=======
-      <router-link to="/">Landing</router-link> |
-      <router-link to="/MinProfil">Min profil</router-link>
->>>>>>> e7dff4c5e2d6fc312fb3f57e8c139fd315a9ad88
+      <router-link to="/vartKaffe">VÅRT KAFFE</router-link> 
     </div>
     <router-view/>
   </div>
