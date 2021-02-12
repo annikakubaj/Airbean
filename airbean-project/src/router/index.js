@@ -18,7 +18,7 @@ const routes = [
     component: () => import('../views/Meny.vue')
   },
   {
-    path: '/minProfil',
+    path: '/minprofil',
     name: 'MinProfil',
   
     component: () => import('../views/MinProfil.vue')
@@ -36,7 +36,7 @@ const routes = [
     component: () => import('../views/Status.vue')
   },
   {
-    path: '/vartKaffe',
+    path: '/vartkaffe',
     name: 'VartKaffe',
   
     component: () => import('../views/VartKaffe.vue')

@@ -3,10 +3,10 @@
     <div id="nav">
       <router-link to="/">LANDING</router-link> |
       <router-link to="/meny">MENY</router-link> |
-      <router-link to="/minProfil">MIN PROFIL</router-link> |
+      <router-link to="/minprofil">MIN PROFIL</router-link> |
       <router-link to="/orderstatus">ORDERSTATUS</router-link> |
       <router-link to="/status">STATUS</router-link> |
-      <router-link to="/vartKaffe">VÅRT KAFFE</router-link> 
+      <router-link to="/vartkaffe">VÅRT KAFFE</router-link> 
     </div>
     <router-view/>
   </div>
