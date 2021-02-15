@@ -13,6 +13,11 @@
 </template>
 
 <style>
+
+* {
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,5 +37,16 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+html{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+body{
+  width:375px;
+  background-color:rgba(243, 228, 225, 1)
 }
 </style>

@@ -1,15 +1,33 @@
 <template>
   <div class="profile">
-      <h1>MIN PROFIL</h1>
+    <img src="../assets/header.svg" alt="header">
+      <NewProfile/>
   </div>
 </template>
 
 <script>
+import NewProfile from '../components/NewProfile.vue'
+
 export default {
+
+  components: {
+    NewProfile,
+  } 
 
 }
 </script>
 
-<style>
+
+
+
+<style scoped>
+
+  div{
+    background-color:rgba(47, 41, 38, 1);
+  }
 
 </style>
+
+
+        
+    
