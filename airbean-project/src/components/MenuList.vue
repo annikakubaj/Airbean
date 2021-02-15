@@ -3,21 +3,28 @@
 
     <h1>MENY</h1>
 
-    <div v-for="art in articles" :key="art.id">
-      <div v-on:click="doStuff">
-        <h2>{{art.name}}</h2>
-        <p>Beskrivning: {{art.description}}</p>
-        <p>Pris: {{art.price}}</p>
-      </div>
+    <!-- PRINTAR UT MENYN -->
+    <div v-for="art in articles"  v-bind:key="art.id">
+
+        <!-- Wrapper runt MenuItem. Har för mig att v-bind och v-on:click kan krocka annars -->
+        <div v-on:click="doStuff(art)">
+
+            <!-- Skriver in datan i MenuItem, oh skriver ut MenuItem -->
+            <MenuItem v-bind:menuItemData="art" />
+        </div>
     </div>
 
     <button v-on:click="increment">INCREMENT BUTTON</button>
+
   </div>
 </template>
 
 <script>
+
+import MenuItem from '@/components/MenuItem.vue'
+
 export default {
-    
+
   computed: {
 
     articles: function(){ // Hämtar första kaffesorten från global space.
@@ -30,10 +37,13 @@ export default {
       this.$store.commit('increment', 10) // Kallar på "Increment" i Store
       console.log(this.$store.state.articles)
     },
-    doStuff: function() {
-      console.log("HEJ") // Lirar
-      console.log(this.atricle.id) // Lirar inte
+    doStuff: function(art) {
+
+      console.log("DET HÄR ÄR MITT ID: " + art.id)
     }
+  },
+  components: {
+      MenuItem
   }
 }
 </script>
