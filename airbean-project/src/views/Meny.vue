@@ -1,45 +1,20 @@
 <template>
   <div class="menu">
 
-    <h1>MENY</h1>
-
-    <div v-for="art in articles" :key="art.id">
-      <div v-on:click="doStuff">
-        <h2>{{art.name}}</h2>
-        <p>Beskrivning: {{art.description}}</p>
-        <p>Pris: {{art.price}}</p>
-      </div>
-    </div>
-
-    <button v-on:click="increment">INCREMENT BUTTON</button>
+    <MenuList />
 
   </div>
 </template>
 
 <script>
+import MenuList from '@/components/MenuList.vue'
+
 export default {
 
-// Loopa ut klickbar meny
-
-  computed: {
-
-    articles: function(){ // Hämtar första kaffesorten från global space.
-      return this.$store.state.articles;
-    }
-  },
-  methods: {
-
-    increment: function() {
-      this.$store.commit('increment', 10) // Kallar på "Increment" i Store
-      console.log(this.$store.state.articles)
-    },
-    doStuff: function() {
-      console.log("HEJ") // Lirar
-      console.log(this.id) // Lirar inte
-    }
+  components: {
+    MenuList
   }
 }
-
 </script>
 
 <style>
