@@ -6,7 +6,7 @@
       <router-link to="/minprofil">MIN PROFIL</router-link> |
       <router-link to="/orderstatus">ORDERSTATUS</router-link> |
       <router-link to="/status">STATUS</router-link> |
-      <router-link to="/vartkaffe">VÅRT KAFFE</router-link> 
+      <router-link to="/vartkaffe">VÅRT KAFFE</router-link>
     </div>
     <router-view/>
   </div>
