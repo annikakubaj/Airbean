@@ -1,12 +1,19 @@
 <template>
     <div>
+        <!-- 
+            JAG SKA HÅLLA OCH PRESENTERA DATA
+            ALLA SMARTA FUNCTIONER ETC SKÖTS I MenuList
+         -->
 
         <!-- Skriver ut datan -->
         <h2>
-            NAMN: {{menuItemData.name}}
+            {{menuItemData.name}}
         </h2>
         <p>
-            DATA: {{menuItemData}}
+            {{menuItemData.description}}
+        </p>
+        <p>
+            PRICE: {{menuItemData.price}}
         </p>
 
 
