@@ -53,20 +53,21 @@ export default new Vuex.Store({
   },
   mutations: {
 
-    addToCart: function (state, payload) {
-//        state.articles[payload -1].name = "BERT"
+    addToCart: function (state, payload) { // Notis: Man får tydligen inte ta bort "state", då havererar allt.
 
-          this.state.articles.forEach(art => {
-            if(art.id == payload) {
+      // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
+      this.state.articles.forEach(art => {
+        if(art.id == payload) {
 
-              this.state.cart.push(art)
-              console.log("CART")
-              console.log(this.state.cart)
+          // Forslar in artikeln i "cart" i Store
+          this.state.cart.push(art)
 
-            }
-          });
-
-      }
+          // Debugg
+          console.log("CART")
+          console.log(this.state.cart)
+        }
+      });
+    }
   },
   actions: {
   },
