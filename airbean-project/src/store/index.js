@@ -44,15 +44,28 @@ export default new Vuex.Store({
           name: "Cortado",
           description: "Bryggd på sjätte månadens bönor",
           price: "39"
-        },
+        }
+      ],
+      cart: [
         
       ]
 
   },
   mutations: {
 
-      increment (state, payload) { // ökar id på första artikeln med värdet på payload
-        state.articles[0].id = state.articles[0].id + payload;
+    addToCart: function (state, payload) {
+//        state.articles[payload -1].name = "BERT"
+
+          this.state.articles.forEach(art => {
+            if(art.id == payload) {
+
+              this.state.cart.push(art)
+              console.log("CART")
+              console.log(this.state.cart)
+
+            }
+          });
+
       }
   },
   actions: {

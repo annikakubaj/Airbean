@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!-- 
+        JAG SKRIVER UT MENYN OCH GÖR MenueItems KLICKBARA
+        ALLA SMARTA FUNCTIONER ETC SKÖTS I MenuList
+    -->
 
     <h1>MENY</h1>
 
@@ -7,14 +11,14 @@
     <div v-for="art in articles"  v-bind:key="art.id">
 
         <!-- Wrapper runt MenuItem. Har för mig att v-bind och v-on:click kan krocka annars -->
-        <div v-on:click="doStuff(art)">
+      <div v-on:click="addToCart(art)">
 
-            <!-- Skriver in datan i MenuItem, oh skriver ut MenuItem -->
-            <MenuItem v-bind:menuItemData="art" />
-        </div>
+        <!-- Skriver in datan i MenuItem, oh skriver ut MenuItem -->
+        <MenuItem v-bind:menuItemData="art" />
+      </div>
     </div>
 
-    <button v-on:click="increment">INCREMENT BUTTON</button>
+
 
   </div>
 </template>
@@ -27,22 +31,24 @@ export default {
 
   computed: {
 
-    articles: function(){ // Hämtar första kaffesorten från global space.
+    articles: function(){ // Hämtar menyn från Store
+
       return this.$store.state.articles;
-    }
+    },
+    cart: function(){ // Hämtar cart från Store
+
+      return this.$store.state.cart;
+    }    
   },
   methods: {
 
-    increment: function() {
-      this.$store.commit('increment', 10) // Kallar på "Increment" i Store
-      console.log(this.$store.state.articles)
-    },
-    doStuff: function(art) {
-
-      console.log("DET HÄR ÄR MITT ID: " + art.id)
+    addToCart(art) {
+        
+        this.$store.commit('addToCart', art.id)
     }
   },
   components: {
+
       MenuItem
   }
 }
