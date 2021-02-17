@@ -11,12 +11,12 @@
     <div v-for="art in articles"  v-bind:key="art.id">
 
       <!-- Wrapper runt MenuItem. Har för mig att v-bind och v-on:click kan krocka annars -->
-      <div v-on:click="addToCart(art)" >
+      <div>
 
         <!-- Skriver in datan i MenuItem, oh skriver ut MenuItem -->
         <MenuItem v-bind:menuItemData="art"/>
         <!-- <MenuItem v-bind:menuItemData="art" v-if="awesome"/>   FRIDA -->
-
+        <button v-on:click="addToCart(art)">I AM BUTTON</button>
       </div>
     </div>
 

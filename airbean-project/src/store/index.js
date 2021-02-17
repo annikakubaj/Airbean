@@ -5,6 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 
+  // PLAN:
+  // Ge nytt ID till varje art som läggs i Cart
+  //   Så att Cart inte får dubbla IDn och börjar jiddra.
+
+  // Fixa knapp inom v-if på MenuItem (Lägg till)
+  //   Kör en vanlig button, klipp in v-on:click på den istället för rakt i MenuItem-taggen
+  // Fixa upp/ner-pil på MenueItem i v-else (öka minska antal) - TA HJÄLP AV TOBBE
+
   
   state: {
 
