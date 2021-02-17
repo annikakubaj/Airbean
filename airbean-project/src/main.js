@@ -12,7 +12,9 @@ new Vue({
   data: function() {
     
     return {
-      user: [],
+      user: [
+       
+      ],
     }
   }, 
   

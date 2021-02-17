@@ -5,17 +5,20 @@
   <img class="profilBild" src="../assets/Profile.svg" alt="profilePicture">
 
   <div class="profilinfo">
-          <h3> userData.name </h3>
-          <p> userData.email </p> 
+      <div v-for="user in user" v-bind:key="user.id">
+          <h2> {{user.name}} </h2>
+          <p> {{user.email}} </p> 
           </div>
+          </div>
+          
 
   <div class="orderhistory">
 
-      <h3> Orderhistorik </h3>
+      <h2> Orderhistorik </h2>
 
       <div v-for="ord in orderhistory"  v-bind:key="ord.id">
 
-          <p> {{ord.number}} </p>
+          <h3> {{ord.number}} </h3>
           <p> {{ord.total}} </p>
 
           </div>
@@ -31,12 +34,18 @@
 
 <script>
 
+
+
 export default {
     computed: {
 
     orderhistory: function(){ // Hämtar menyn från Store
 
       return this.$store.state.orderhistory;
+    },
+
+    userinfo() {
+        return this.$root.$data.user
     }
   },
 
@@ -67,6 +76,17 @@ export default {
 }
 
 .orderhistory {
+color: white;
+align-self: flex-start;
+margin-top: 90px;
+margin-left: 20px;
+}
+
+.orderhistory p {
+    font-size: 15px;
+    border-bottom: white solid 2px;
+    border-bottom-style: dotted;
+    
 
 }
 
