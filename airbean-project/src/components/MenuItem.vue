@@ -6,17 +6,36 @@
   -->
 
   <!-- Skriver ut datan -->
-  <h2>
-    {{menuItemData.name}}
-  </h2>
+  <div v-if="menuItemData" >
+    <h2>
+      {{menuItemData.name}}
+    </h2>
 
-  <p>
-    {{menuItemData.description}}
-  </p>
+    <p>
+      {{menuItemData.description}}
+    </p>
 
-  <p>
-    PRICE: {{menuItemData.price}}
-  </p>
+    <p>
+      PRICE: {{menuItemData.price}}
+    </p>
+  </div>
+
+<!-- Skriver ut datan -->
+  <div v-if="cartItemData" >
+    <h2>
+      {{cartItemData.name}}
+    </h2>
+
+    <p>
+      {{cartItemData.description}}
+    </p>
+
+    <p>
+      PRICE: {{cartItemData.price}}
+    </p>
+  </div>
+
+
 
 </div>
 </template>
@@ -26,7 +45,8 @@ export default {
   props: [
 
     // Tar emot datan från MenuList
-    'menuItemData'
+    'menuItemData',
+    'cartItemData'
   ]
 }
 </script>

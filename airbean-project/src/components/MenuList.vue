@@ -44,7 +44,7 @@ export default {
   },
   methods: {
 
-    addToCart(art) { // ber Store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
+    addToCart(art) { // Ber Store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
 
       this.$store.commit('addToCart', art.id)
       this.awesome = false
