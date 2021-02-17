@@ -3,13 +3,14 @@
     <div class="register">
         <p class="first">Välkommen till AirBean-familjen!</p>
         <p class="second">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.</p>
-        <form>
+        <form  @submit.prevent>
             <p class="label"> Namn </p>
-            <input type="text">
+            <input type="text" v-model="person.name">
 
             <p class="label"> E-post </p>
-            <input type="text">
-            <input class="button" type="button" value="Brew me a cup!"> 
+            <input type="text" v-model="person.email">
+            <input class="radio" type="radio"> <label class="label"> GDPR OK! </label>
+            <input class="button" type="button" value="Brew me a cup!" v-on:click="saveUser"> 
         </form>
     </div>
     </div>
@@ -20,6 +21,27 @@
 <script>
 export default {
 
+data: function() { 
+    return {
+      person: {
+      name:"",
+      email:"",
+      },
+    }
+     
+
+    },
+
+      methods: {
+
+      saveUser: function() {
+        this.$root.$data.user.push(this.person);
+        console.log(this.person);
+
+       
+        }
+
+},
 
 
 }
@@ -31,12 +53,12 @@ export default {
 .wrapper{
     display: flex;
     justify-content: center;
-    height:470px;
+    height:500px;
 }
 
 .register{
     width:330px;
-    height:450px;
+    height:480px;
     border-radius: 3px;;
     background-image: linear-gradient(white, rgba(243, 228, 225, 1));
     
@@ -58,6 +80,13 @@ export default {
     text-align:left;
 }
 
+.radio{
+    width: 25px;
+    height:25px;
+    color:rgba(14, 146, 125, 1);
+    border:black;
+}
+
 input{
     width:310px;
     height:50px;
@@ -68,6 +97,8 @@ input{
     padding:10px;
     
 }
+
+
 
 
 .button{
@@ -82,5 +113,8 @@ input{
     font-weight: bold;
     font-family: serif;
 }
+
+
+
 
 </style>
