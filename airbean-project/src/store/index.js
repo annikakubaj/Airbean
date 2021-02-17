@@ -67,21 +67,12 @@ export default new Vuex.Store({
           // Ökar Amount med 1
           art.amount += 1;
 
-            console.log("MENU ID 1:")
-            console.log(art.id)
+          // klonar över artikeln till cart.
+          let parsedArt = JSON.parse(JSON.stringify(art)) // Tar bort pekaren, så att man kan uppdatera cart.id utan att röra articles.id
+          this.state.cart.push(parsedArt)// Forslar in artikeln i "cart" i Store 
 
-          // Forslar in artikeln i "cart" i Store          
-          this.state.cart.push(art)
-
-          this.state.cart[this.state.cart.length -1].id = Date.now().toString()
-
-            console.log("CART ID:")
-            console.log(this.state.cart[this.state.cart.length -1].id)
-
-            console.log("MENU ID 2:")
-            console.log(this.state.cart)
-            console.log(this.state.articles[0])
-
+          // Ger ett nytt id till artikeln som läggs i cart
+          this.state.cart[this.state.cart.length -1].id = Date.now().toString() 
         }
       });
     }
