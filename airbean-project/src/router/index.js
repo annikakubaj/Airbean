@@ -41,6 +41,13 @@ const routes = [
   
     component: () => import('../views/VartKaffe.vue')
   },
+
+  {
+    path: '/userprofile',
+    name: 'UserProfile',
+    
+    component: () => import('../views/UserProfile.vue')
+  },
 ]
 
 const router = new VueRouter({
