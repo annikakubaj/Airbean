@@ -10,6 +10,18 @@
           </div>
 
   <div class="orderhistory">
+
+      <h3> Orderhistorik </h3>
+
+      <div v-for="ord in orderhistory"  v-bind:key="ord.id">
+
+          <p> {{ord.number}} </p>
+          <p> {{ord.total}} </p>
+
+          </div>
+
+
+
       </div>
 
       
@@ -18,7 +30,15 @@
 </template>
 
 <script>
+
 export default {
+    computed: {
+
+    orderhistory: function(){ // Hämtar menyn från Store
+
+      return this.$store.state.orderhistory;
+    }
+  },
 
 }
 </script>
@@ -44,6 +64,10 @@ export default {
     color: white;
     
     
+}
+
+.orderhistory {
+
 }
 
 </style>
