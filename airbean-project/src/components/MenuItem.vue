@@ -18,6 +18,12 @@
     <p>
       PRICE: {{menuItemData.price}}
     </p>
+
+    <p>
+      COUNT: {{menuItemData.amount}}
+    </p>
+
+    <button>I AM OTHER BUTTON</button>
   </div>
 
 <!-- Skriver ut datan -->
