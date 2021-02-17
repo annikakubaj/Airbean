@@ -2,11 +2,14 @@
   <div class="profile">
     <img src="../assets/header.svg" alt="header">
       <NewProfile/>
-  </div>
+  </div> 
+  
+
 </template>
 
 <script>
 import NewProfile from '../components/NewProfile.vue'
+
 
 export default {
 
