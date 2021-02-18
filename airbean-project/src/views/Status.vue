@@ -5,14 +5,26 @@
       <h2>Din beställning<br> är på väg!</h2>
       <p> 13 min </p>
 
-      <button class="okCoolBtn"> Ok, cool! </button>
+      <UserProfile/>
+      <button @click= "okCoolBtn"> Ok, cool! </button>
   </div>
 </template>
 
 <script>
+
 export default {
+ 
+
+  methods: {
+  okCoolBtn() {
+    this.$router.push("/UserProfile");
+  },
+    
+  }
 
 }
+
+
 </script>
 
 <style scoped>
@@ -40,7 +52,7 @@ p {
   color: white;
 }
 
-.okCoolBtn {
+button {
   border-radius: 20px; 
   width: 150px;
   height: 40px;

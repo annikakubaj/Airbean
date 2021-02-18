@@ -4,7 +4,7 @@
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in cart"  v-bind:key="art.id">
 
-      <!-- Skriver in datan i MenuItem, oh skriver ut MenuItem -->
+      <!-- Skriver in datan i MenuItem, och skriver ut MenuItem -->
       <MenuItem v-bind:cartItemData="art"/>
         
     </div>
