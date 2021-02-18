@@ -5,7 +5,7 @@
       <h2>Din beställning<br> är på väg!</h2>
       <p> 13 min </p>
 
-      <UserProfile/>
+      
       <button @click= "okCoolBtn"> Ok, cool! </button>
   </div>
 </template>

@@ -37,9 +37,11 @@ data: function() {
       saveUser: function() {
         this.$root.$data.user.push(this.person);
         console.log(this.person);
+        this.$router.push("/UserProfile");
 
        
-        }
+        },
+       
 
 },
 
