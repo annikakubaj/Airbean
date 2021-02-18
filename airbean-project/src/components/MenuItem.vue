@@ -19,10 +19,15 @@
       PRICE: {{menuItemData.price}}
     </p>
 
+    <p v-if="cartItemData">
+      HEJ
+    </p>
+
     <button>I AM POINTLESS BUTTON</button>
+
   </div>
 
-<!-- Skriver ut datan i cart, givet att det finns data i cart -->
+  <!-- Skriver ut datan i cart, givet att det finns data i cart -->
   <div v-if="cartItemData" >
     <h2>
       {{cartItemData.name}}
@@ -43,6 +48,8 @@
     <p>
       COMPUTED PRICE: {{computedPrice}}
     </p>
+
+    <p v-if="cartItemData"></p>
   </div>
 
 
@@ -54,7 +61,6 @@
 export default {
   props: [
 
-    // Tar emot datan från MenuList
     'menuItemData',
     'cartItemData'
   ],

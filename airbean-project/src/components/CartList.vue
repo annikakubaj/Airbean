@@ -19,7 +19,8 @@ import MenuItem from '@/components/MenuItem.vue'
 export default {
   computed: {
 
-    cart: function(){ // Hämtar cart från Store
+
+    cart: function() { // Hämtar cart från Store
 
       return this.$store.state.cart;
     }

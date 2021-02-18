@@ -86,15 +86,14 @@ export default new Vuex.Store({
 
           if (foundCartItem){
 
-            foundCartItem.amount += 1; // Ökar amount 
+            // Ökar amount
+            foundCartItem.amount += 1;  
 
           } else {
 
-            // ökar amount och klonar över artikeln till cart.
-
-            let parsedArt = JSON.parse(JSON.stringify(art)) // Tar bort pekaren, så att man kan uppdatera cart.id utan att röra articles.id
-            parsedArt.amount += 1;
-            this.state.cart.push(parsedArt)// Forslar in artikeln i "cart" i Store
+            // Ökar amount och klonar över artikeln till cart
+            art.amount += 1;
+            this.state.cart.push(art) // Forslar in artikeln i "cart" i Store
           }
 
         }
