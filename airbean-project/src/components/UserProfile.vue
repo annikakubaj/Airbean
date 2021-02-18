@@ -5,7 +5,7 @@
   <img class="profilBild" src="../assets/Profile.svg" alt="profilePicture">
 
   <div class="profilinfo">
-      <div v-for="user in user" v-bind:key="user.id">
+      <div v-for="user in user" v-bind:key="user.index">
           <h2> {{user.name}} </h2>
           <p> {{user.email}} </p> 
           </div>
@@ -44,7 +44,7 @@ export default {
       return this.$store.state.orderhistory;
     },
 
-    userinfo() {
+    user() {
         return this.$root.$data.user
     }
   },
@@ -71,19 +71,21 @@ export default {
 
 .profilinfo {
     color: white;
+    font-size: 15px;
+    
     
     
 }
 
 .orderhistory {
 color: white;
-align-self: flex-start;
-margin-top: 90px;
+align-self: flex-start; 
 margin-left: 20px;
+font-size: 15px;
 }
 
 .orderhistory p {
-    font-size: 15px;
+    font-size: 10px;
     border-bottom: white solid 2px;
     border-bottom-style: dotted;
     
