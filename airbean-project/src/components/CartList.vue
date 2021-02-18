@@ -1,6 +1,7 @@
 <template>
   <div>
 
+    {{orderSum}}
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in cart"  v-bind:key="art.id">
 
@@ -16,13 +17,33 @@
 
 import MenuItem from '@/components/MenuItem.vue'
 
-export default {
-  computed: {
 
+//  loopa igenom cart
+//    VAR DÅ?
+//  plocka computedPrice från varje element
+//    MEN VAD FAN RETURNAR JAG?
+//  
+//
+
+
+
+export default {
+
+  computed: {
 
     cart: function() { // Hämtar cart från Store
 
       return this.$store.state.cart;
+    },
+    orderSum: function() { // Summerar ihop den totala kostnaden för beställningen
+      let sum = 0
+
+      this.cart.forEach(art => { // Loopar igenom cart
+        
+        sum += art.price * art.amount // multiplicerar pris med antal på varje artikel, och slänger in i sum
+      });
+
+      return sum 
     }
   },
   props: [
