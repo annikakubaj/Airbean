@@ -23,6 +23,8 @@
       HEJ
     </p>
 
+    <p v-if="cartItemData">HEJHOPP!!!</p>
+
     <button>I AM POINTLESS BUTTON</button>
 
   </div>
@@ -49,7 +51,7 @@
       COMPUTED PRICE: {{computedPrice}}
     </p>
 
-    <p v-if="cartItemData"></p>
+
   </div>
 
 
