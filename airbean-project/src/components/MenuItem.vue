@@ -5,7 +5,7 @@
     ALLA SMARTA FUNCTIONER ETC SKÖTS I MenuList
   -->
 
-  <!-- Skriver ut datan -->
+  <!-- Skriver ut datan i menyn, givet att det finns data i menyn -->
   <div v-if="menuItemData" >
     <h2>
       {{menuItemData.name}}
@@ -20,13 +20,13 @@
     </p>
 
     <p>
-      COUNT: {{menuItemData.amount}}
+      AMOUNT: {{menuItemData.amount}}
     </p>
 
-    <button>I AM OTHER BUTTON</button>
+    <button>I AM POINTLESS BUTTON</button>
   </div>
 
-<!-- Skriver ut datan -->
+<!-- Skriver ut datan i cart, givet att det finns data i cart -->
   <div v-if="cartItemData" >
     <h2>
       {{cartItemData.name}}
@@ -37,7 +37,15 @@
     </p>
 
     <p>
+      AMOUNT: {{cartItemData.amount}}
+    </p>
+
+    <p>
       PRICE: {{cartItemData.price}}
+    </p>
+
+    <p>
+      COMPUTED PRICE: {{computedPrice}}
     </p>
   </div>
 
@@ -53,7 +61,18 @@ export default {
     // Tar emot datan från MenuList
     'menuItemData',
     'cartItemData'
-  ]
+  ],
+  computed: {
+
+    computedPrice: function() {
+
+      if (this.cartItemData) {
+
+        return this.cartItemData.price * this.cartItemData.amount;
+      }
+      return 0;
+    }
+  }
 }
 </script>
 
