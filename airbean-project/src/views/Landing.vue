@@ -42,12 +42,17 @@
 .logo {
   margin-top: 250px;
   align-self: baseline;
+  position: absolute;
   
 }
 
 .left {
-margin-right: -193px;
+padding-left: 1px;
 
+}
+
+.right {
+  margin-left: 64px;
 }
 
 
