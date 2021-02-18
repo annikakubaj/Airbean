@@ -19,10 +19,6 @@
       PRICE: {{menuItemData.price}}
     </p>
 
-    <p>
-      AMOUNT: {{menuItemData.amount}}
-    </p>
-
     <button>I AM POINTLESS BUTTON</button>
   </div>
 
