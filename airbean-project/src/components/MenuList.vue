@@ -24,10 +24,17 @@
 </template>
 
 <script>
-  // PLAN:
+
+  // GJORT:
   // XXX Amount XXX
-  // Ge nytt ID till varje art som läggs i Cart
-  //   Så att Cart inte får dubbla IDn och börjar jiddra.
+  // XXX Ge nytt ID till varje art som läggs i Cart XXX
+  // XXX Så att Cart inte får dubbla IDn och börjar jiddra XXX
+
+  // PLAN:
+  // Gör så att amount ökar, istället för att nya läggs till i cart, när man kör addToCart
+  // v-for art in cart
+  //  v-if art.name == cartItem.name => hitta idt
+  // Öka count, och pris på det id:t  
 
   // Fixa knapp inom v-if på MenuItem (Lägg till)
   //   Kör en vanlig button, klipp in v-on:click på den istället för rakt i MenuItem-taggen
