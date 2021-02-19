@@ -54,6 +54,7 @@ export default new Vuex.Store({
       cart: [
         
       ],
+      orderSum: [ 0 ], // <--- orderSum. Jag hämtar den som computed property i CardList, om man vill se hur den nås från komponenter. //
 
       orderhistory: [ 
         {
@@ -98,6 +99,17 @@ export default new Vuex.Store({
 
         }
       });
+    },
+    calculateOrderSum: function() { // Summerar ihop den totala kostnaden för beställningen
+      let sum = 0
+
+      this.state.cart.forEach(art => { // Loopar igenom cart
+        
+        sum += art.price * art.amount // multiplicerar pris med antal på varje artikel, och slänger in i sum
+      });
+
+      this.state.orderSum = []; // Rensar listan
+      this.state.orderSum.push(sum) // Fyller listan pånytt
     }
   },
   actions: {
