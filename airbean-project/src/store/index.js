@@ -54,8 +54,6 @@ export default new Vuex.Store({
       cart: [
         
       ],
-      orderSum: [ 0 ], // <--- orderSum. Jag hämtar den som computed property i CardList, om man vill se hur den nås från komponenter. //
-
       orderhistory: [ 
         {
           id: 27,
@@ -73,43 +71,40 @@ export default new Vuex.Store({
           total: "25kr"
         }
       ]
+  },
 
+  getters: { // Getters funkar som computed properites fast i store
+
+    orderSum: function(state){
+
+      let sum = 0
+
+      state.cart.forEach(art => { // Loopar igenom cart ("art" är den specifika artikel som loopen tittar för tillfället)
+        
+        sum += art.price * art.amount // multiplicerar pris med antal på varje artikel, och slänger in i sum
+      });
+
+      return sum;
+    }
   },
   mutations: {
 
     addToCart: function (state, payload) {
 
-      this.state.articles.forEach(art => { // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
-        if(art.id == payload) { // Stanna på rätt plats i articles
+      const art = state.articles.find(art => art.id == payload); // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
+      const foundCartItem = state.cart.find(cartItem => { return art.id == cartItem.id }) 
 
-          // Ser ifall artikeln redan finns i cart
-          let foundCartItem = this.state.cart.find(cartItem => { return art.id == cartItem.id }) 
+      if (foundCartItem){
 
-          if (foundCartItem){
+        // Ökar amount
+        foundCartItem.amount += 1;  
 
-            // Ökar amount
-            foundCartItem.amount += 1;  
+      } else {
 
-          } else {
-
-            // Ökar amount och klonar över artikeln till cart
-            art.amount += 1;
-            this.state.cart.push(art) // Forslar in artikeln i "cart" i Store
-          }
-
-        }
-      });
-    },
-    calculateOrderSum: function() { // Summerar ihop den totala kostnaden för beställningen
-      let sum = 0
-
-      this.state.cart.forEach(art => { // Loopar igenom cart
-        
-        sum += art.price * art.amount // multiplicerar pris med antal på varje artikel, och slänger in i sum
-      });
-
-      this.state.orderSum = []; // Rensar listan
-      this.state.orderSum.push(sum) // Fyller listan pånytt
+        // Ökar amount och klonar över artikeln till cart
+        art.amount += 1;
+        state.cart.push(art) // Forslar in artikeln i "cart" i Store
+      }
     }
   },
   actions: {

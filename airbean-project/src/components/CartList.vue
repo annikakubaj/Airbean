@@ -14,9 +14,7 @@
 </template>
 
 <script>
-
 import MenuItem from '@/components/MenuItem.vue'
-
 
 export default {
 
@@ -27,8 +25,8 @@ export default {
       return this.$store.state.cart;
     },
     orderSum: function() { // Ber Store köra metoden "calculateOrderSum" och hämtar sen den uträknade orderSum
-      this.$store.commit('calculateOrderSum')
-      return this.$store.state.orderSum;
+
+      return this.$store.getters.orderSum;
     }
   },
   props: [

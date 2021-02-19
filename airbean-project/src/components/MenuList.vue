@@ -29,8 +29,8 @@
   // XXX Amount XXX
   // XXX Ge nytt ID till varje art som läggs i Cart XXX
   // XXX Så att Cart inte får dubbla IDn och börjar jiddra XXX
-
   // XXX Gör så att amount ökar, istället för att nya läggs till i cart, när man kör addToCart
+  // XXX orderSum XXX
 
   // PLAN:
   // Visa upp cartItem.amount i menyn.
@@ -61,7 +61,7 @@ export default {
     addToCart(art) { // Ber Store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
 
       this.$store.commit('addToCart', art.id)
-      this.awesome = false
+      // this.awesome = false
     }
   },
   components: {
