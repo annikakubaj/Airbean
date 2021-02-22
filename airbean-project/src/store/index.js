@@ -80,6 +80,7 @@ export default new Vuex.Store({
 
       state.cart.forEach(art => { // Loopar igenom cart ("art" är den specifika artikel som loopen tittar för tillfället)
         
+        console.log(art.amount)
         sum += art.amount // räknar ihop antalet artiklar
       });
 
@@ -107,7 +108,7 @@ export default new Vuex.Store({
       if (foundCartItem){
 
         // Ökar amount
-        foundCartItem.amount += 1;  
+        foundCartItem.amount ++;  
 
       } else {
 

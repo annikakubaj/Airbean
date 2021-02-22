@@ -14,6 +14,7 @@
         <MenuItem v-bind:menuItemData="art"/>
 
         <button v-on:click="addToCart(art)">I AM BUTTON</button>
+
       </div>
     </div>
 
@@ -50,6 +51,7 @@ export default {
     addToCart(art) { // Ber Store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
 
       this.$store.commit('addToCart', art.id)
+      console.log(this.articlesInCart)
     }
   },
   components: {

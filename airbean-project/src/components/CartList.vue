@@ -1,15 +1,18 @@
 <template>
   <div>
-    
-    <p>ORDER SUM {{orderSum}}:-</p>
-    <button v-on:click="onPurchase()">TAKE MY MONEY</button>
+
+    <h2>ORDER SUM {{orderSum}}:-</h2>
+    <router-link to="/status"><button v-on:click="onPurchase()">TAKE MY MONEY</button></router-link>
 
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in cart"  v-bind:key="art.id">
 
       <!-- Skriver in datan i MenuItem, och skriver ut MenuItem -->
       <MenuItem v-bind:cartItemData="art"/>
-        
+    
+      <!-- Reglage för amount -->
+      <input type="number" min="1" v-model.number="art.amount">
+
     </div>
 
   </div>
@@ -29,15 +32,11 @@ export default {
     orderSum: function() { // hämtar orderSum från store
 
       return this.$store.getters.orderSum;
-    },
-    orderHistory: function() {
-
-      return this.$store.state.orderhistory;
     }
   },
   methods: {
 
-    onPurchase: function(){
+    onPurchase: function(){ // säger åt store att köra mutationen onPurchase
     
       this.$store.commit('onPurchase')
     }
