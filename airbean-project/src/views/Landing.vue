@@ -1,6 +1,6 @@
 <template>
 
-<section class="container">
+<section class="container" @click="showNav">
 
 
 <div class="left"><img src="../assets/landing left.svg"/> </div>
@@ -13,6 +13,17 @@
 </template>
 
 <script>
+
+export default {
+
+  methods: {
+
+    showNav: function(){
+      this.$router.push("/nav")
+    }
+  }
+    
+}
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 

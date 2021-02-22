@@ -1,6 +1,6 @@
 <template>
   <article>
-    <img src="../assets/header.svg" />
+    <Header/>
 
     <div class="container">
       <h1> Vårt Kaffe </h1>
@@ -39,7 +39,9 @@
 </template>
 
 <script>
-export default { 
+import Header from './Header.vue'
+export default {
+  components: { Header }, 
 
 }
 </script>

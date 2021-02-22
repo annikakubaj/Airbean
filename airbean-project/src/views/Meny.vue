@@ -1,5 +1,6 @@
 <template>
   <div class="menu">
+    <Header/>
 
     <MenuList />
 
@@ -8,11 +9,13 @@
 
 <script>
 import MenuList from '@/components/MenuList.vue'
+import Header from './Header.vue'
 
 export default {
 
   components: {
-    MenuList
+    MenuList,
+    Header
   }
 }
 </script>

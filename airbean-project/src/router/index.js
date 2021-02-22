@@ -48,6 +48,13 @@ const routes = [
     
     component: () => import('../views/UserProfile.vue')
   },
+
+  {
+    path: '/nav',
+    name: 'Navbar',
+    
+    component: () => import('../components/Navbar.vue')
+  },
 ]
 
 const router = new VueRouter({

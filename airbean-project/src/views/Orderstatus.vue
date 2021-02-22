@@ -1,5 +1,6 @@
 <template>
   <div class="orderstatus">
+    <Header/>
       <h1>ORDERSTATUS</h1>
       <CartList/>
   </div>
@@ -8,12 +9,14 @@
 <script>
 
 import CartList from '@/components/CartList.vue'
+import Header from './Header.vue'
 
 export default {
 
   components: {
 
-    CartList
+    CartList,
+    Header,
   }
 
 }

@@ -1,7 +1,6 @@
 <template>
   <div class="userProfile">
-
-      <img src="../assets/header.svg" alt="header">
+    <Header/>
       <UserProfile/>
 
 
@@ -10,10 +9,12 @@
 
 <script>
 import UserProfile from '../components/UserProfile.vue'
+import Header from './Header.vue'
 
 export default {
     components: {
         UserProfile,
+        Header,
     }
 
 }
