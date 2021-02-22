@@ -1,20 +1,22 @@
 <template>
 
-  <div>
-
+  <div v-if="close === false">
+    <img class ="close" src="../assets/close.svg" alt="close" @click="hideDiv">
+    <div>
       <p> <router-link to="/">Landing</router-link> </p>
-      <hr>
+      <p class="line"> _____ </p>
       <p> <router-link to="/meny">Meny</router-link> </p>
-      <hr>
+      <p class="line"> _____ </p>
       <p> <router-link to="/minprofil">Min profil</router-link> </p>
-      <hr>
+      <p class="line"> _____ </p>
       <p> <router-link to="/orderstatus">Orderstatus</router-link> </p>
-      <hr>
+      <p class="line"> _____ </p>
       <p> <router-link to="/status">Status</router-link> </p>
-      <hr>
+      <p class="line"> _____ </p>
       <p> <router-link to="/vartkaffe">Vårt kaffe</router-link> </p>
-      <hr>
+      <p class="line"> _____ </p>
       <p> <router-link to="/userprofile"> Inloggad profil </router-link> </p>
+    </div>
 
     </div>
  
@@ -23,6 +25,20 @@
 
 <script>
 export default {
+
+  data() {
+   return{
+     close: false
+   }  
+  },
+
+  methods:{
+
+    hideDiv: function(){
+      return this.close= true,
+      this.$router.push("/")
+    }
+  }
     
 
 }
@@ -30,6 +46,15 @@ export default {
 </script>
 
 <style scoped>
+
+.close{
+  padding-right: 270px;
+}
+
+.line{
+  font-size: 12px;
+  color:rgba(255, 255, 255, 0.2);
+}
 
 hr{
   width:20%;
@@ -46,6 +71,7 @@ p{
     font-size: 200%;
     font-weight: bold;
     font-family: serif;
+    margin:12px;
 }
 
 a:link {

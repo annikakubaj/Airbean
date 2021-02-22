@@ -1,6 +1,7 @@
 <template>
     <div class="wrapper">
     <div class="register">
+        <img class="logo" src="../assets/A.svg" alt="logo">
         <p class="first">Välkommen till AirBean-familjen!</p>
         <p class="second">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.</p>
         <form  @submit.prevent>
@@ -56,6 +57,10 @@ data: function() {
 
 <style scoped>
 
+.logo{
+    margin-top:25px;
+}
+
 .wrapper{
     display: flex;
     justify-content: center;
@@ -75,7 +80,7 @@ data: function() {
     font-weight: bold;
     font-size: 32px;
     font-family: serif;
-    margin-bottom: 0px;;
+    margin: 0px;
 }
 .second{
     font-size:16px;
