@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>ORDER SUM {{orderSum}}</p>
+    <p>ORDER SUM {{orderSum}}:-</p>
     
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in cart"  v-bind:key="art.id">
