@@ -75,7 +75,7 @@ export default new Vuex.Store({
 
   getters: { // Getters funkar som computed properites fast i store
 
-    orderSum: function(state){
+    orderSum: function(state){ // <----- orderSum. Just nu hämtas den i CartList.
 
       let sum = 0
 

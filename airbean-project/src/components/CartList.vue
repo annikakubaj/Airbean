@@ -20,11 +20,11 @@ export default {
 
   computed: {
 
-    cart: function() { // Hämtar cart från Store
+    cart: function() { // Hämtar cart från store
 
       return this.$store.state.cart;
     },
-    orderSum: function() { // Ber Store köra metoden "calculateOrderSum" och hämtar sen den uträknade orderSum
+    orderSum: function() { // hämtar orderSum från store
 
       return this.$store.getters.orderSum;
     }
