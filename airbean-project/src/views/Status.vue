@@ -3,7 +3,7 @@
 
      <img class="statuslogo" src="../assets/status.svg" alt="statuslogo">
       <h2>Din beställning<br> är på väg!</h2>
-      <p> 13 min </p>
+      <p class="countdown"> {{ countDown}} min </p>
 
       
       <button @click= "okCoolBtn"> Ok, cool! </button>
@@ -13,6 +13,25 @@
 <script>
 
 export default {
+  data () {
+    return {
+      countDown: 13,
+    }
+  },
+
+  watch: {
+    countDown:
+    { 
+      handler(value) {
+        if (value > 0) {
+          setTimeout(() => {
+            this.countDown--;
+          }, 10000);
+        }
+      },
+      immediate: true
+    }
+  },
  
 
   methods: {
@@ -32,7 +51,7 @@ export default {
 .wrapper {
  display: flex;
  justify-content: center; 
- height: 500px;
+ height: 700px;
  flex-direction: column;
  align-items: center; 
  background-color: #E5674E;

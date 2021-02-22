@@ -18,7 +18,7 @@
 
       <div v-for="ord in orderhistory"  v-bind:key="ord.id">
 
-          <h3> {{ord.number}} </h3>
+          <h3 class="ordernummer"> {{ord.number}} </h3>
           <p> {{ord.total}} </p>
 
           </div>
@@ -78,10 +78,12 @@ export default {
 }
 
 .orderhistory {
+
 color: white;
 align-self: flex-start; 
 margin-left: 20px;
 font-size: 15px;
+
 }
 
 .orderhistory p {
