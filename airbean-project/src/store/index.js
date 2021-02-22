@@ -54,23 +54,7 @@ export default new Vuex.Store({
       cart: [
         
       ],
-      orderhistory: [ 
-        {
-          id: 27,
-          number: "#AB12837283Z",
-          total: "443kr"
-        },
-        {
-          id: 32,
-          number: "#AC12837283Z",
-          total: "40kr"
-        },
-        { 
-          id: 60,
-          number: "#AD12837283Z",
-          total: "25kr"
-        }
-      ]
+      orderhistory: []
   },
 
   getters: { // Getters funkar som computed properites fast i store
