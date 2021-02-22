@@ -27,7 +27,8 @@ export default {
     orderSum: function() { // hämtar orderSum från store
 
       return this.$store.getters.orderSum;
-    }
+    },
+    
   },
   props: [
 

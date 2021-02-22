@@ -74,7 +74,17 @@ export default new Vuex.Store({
   },
 
   getters: { // Getters funkar som computed properites fast i store
+    articlesInCart: function(state){
 
+      let sum = 0
+
+      state.cart.forEach(art => { // Loopar igenom cart ("art" är den specifika artikel som loopen tittar för tillfället)
+        
+        sum += art.amount // räknar ihop antalet artiklar
+      });
+
+      return sum;
+    },
     orderSum: function(state){ // <----- orderSum. Just nu hämtas den i CartList.
 
       let sum = 0
