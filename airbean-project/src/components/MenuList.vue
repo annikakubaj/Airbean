@@ -2,8 +2,7 @@
   <div>
 
     <!-- Visar hur många artiklar som ligger i cart -->
-
-    <h1>Articles in cart: {{articlesInCart}}</h1>
+    <h3>Articles in cart: {{articlesInCart}}</h3>
     
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in articles"  v-bind:key="art.id">

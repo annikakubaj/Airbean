@@ -19,14 +19,6 @@
       PRICE: {{menuItemData.price}}
     </p>
 
-    <p v-if="cartItemData">
-      HEJ
-    </p>
-
-    <p v-if="cartItemData">HEJHOPP!!!</p>
-
-    <button>I AM POINTLESS BUTTON</button>
-
   </div>
 
   <!-- Skriver ut datan i cart, givet att det finns data i cart -->
@@ -41,10 +33,6 @@
 
     <p>
       AMOUNT: {{cartItemData.amount}}
-    </p>
-
-    <p>
-      PRICE: {{cartItemData.price}}
     </p>
 
     <p>

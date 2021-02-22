@@ -115,6 +115,17 @@ export default new Vuex.Store({
         art.amount += 1;
         state.cart.push(art) // Forslar in artikeln i "cart" i Store
       }
+    },
+    onPurchase: function() {
+
+      let order = { // Bygger objektet som ska pushas in i orderhistory
+        id: Date.now().toString(),
+        number: Date.now().toString(),
+        total: this.getters.orderSum + "kr"
+      }
+
+      this.state.cart = [] // Tömmer cart
+      this.state.orderhistory.push(order) // Forslar in objektet i orderhistory
     }
   },
   actions: {

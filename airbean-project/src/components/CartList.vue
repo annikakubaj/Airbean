@@ -1,7 +1,9 @@
 <template>
   <div>
-    <p>ORDER SUM {{orderSum}}:-</p>
     
+    <p>ORDER SUM {{orderSum}}:-</p>
+    <button v-on:click="onPurchase()">TAKE MY MONEY</button>
+
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in cart"  v-bind:key="art.id">
 
@@ -28,7 +30,17 @@ export default {
 
       return this.$store.getters.orderSum;
     },
+    orderHistory: function() {
+
+      return this.$store.state.orderhistory;
+    }
+  },
+  methods: {
+
+    onPurchase: function(){
     
+      this.$store.commit('onPurchase')
+    }
   },
   props: [
 
