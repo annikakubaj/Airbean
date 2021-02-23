@@ -1,8 +1,13 @@
 <template>
   <div>
 
-    <h2>ORDER SUM {{orderSum}}:-</h2>
-    <router-link to="/status"><button v-on:click="onPurchase()">TAKE MY MONEY</button></router-link>
+    
+    <div v-if="orderSum > 0">
+      
+      <h2>ORDER SUM {{orderSum}}:-</h2>
+      <router-link to="/status"><button v-on:click="onPurchase()">TAKE MY MONEY</button></router-link>
+    </div>
+
 
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in cart"  v-bind:key="art.id">
