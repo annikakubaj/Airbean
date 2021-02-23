@@ -6,13 +6,15 @@
 
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in cart"  v-bind:key="art.id">
+      
+      <div v-if="art.amount > 0"> <!-- Tar bort artikeln ifall amount inte är över 0 -->
+        
+        <MenuItem v-bind:cartItemData="art"/>
 
-      <!-- Skriver in datan i MenuItem, och skriver ut MenuItem -->
-      <MenuItem v-bind:cartItemData="art"/>
-    
-      <!-- Reglage för amount -->
-      <input type="number" min="1" v-model.number="art.amount">
+        <!-- Reglage för amount -->
+        <input type="number" v-model.number="art.amount">
 
+      </div>
     </div>
 
   </div>

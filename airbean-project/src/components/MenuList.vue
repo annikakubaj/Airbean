@@ -51,7 +51,6 @@ export default {
     addToCart(art) { // Ber Store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
 
       this.$store.commit('addToCart', art.id)
-      console.log(this.articlesInCart)
     }
   },
   components: {
