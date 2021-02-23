@@ -10,7 +10,8 @@
 
             <p class="label"> E-post </p>
             <input type="text" v-model="person.email">
-            <input class="radio" type="radio"> <label class="label"> GDPR OK! </label>
+
+            <p class="radio"><input class="radio-btn" type="radio"> <label class="radio-label"> GDPR OK! </label></p>
             <input class="button" type="button" value="Brew me a cup!" v-on:click="saveUser"> 
         </form>
     </div>
@@ -90,12 +91,19 @@ data: function() {
     margin: 0px 15px;
     text-align:left;
 }
-
 .radio{
-    width: 25px;
-    height:25px;
-    color:rgba(14, 146, 125, 1);
-    border:black;
+    margin: 0px 15px;
+    text-align: left;
+}
+.radio-btn{
+    width: 12px;
+    height:12px;
+   
+}
+
+.radio-label{
+    font-size: 14px;
+    margin:0;
 }
 
 input{
