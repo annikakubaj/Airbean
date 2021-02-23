@@ -9,7 +9,7 @@
       
       <div v-if="art.amount > 0"> <!-- Tar bort artikeln ifall amount inte är över 0 -->
         
-        <MenuItem v-bind:cartItemData="art"/>
+        <ArticleItem v-bind:cartItemData="art"/>
 
         <!-- Reglage för amount -->
         <input type="number" v-model.number="art.amount">
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import MenuItem from '@/components/MenuItem.vue'
+import ArticleItem from '@/components/ArticleItem.vue'
 
 export default {
 
@@ -50,7 +50,7 @@ export default {
   ],
   components: {
 
-    MenuItem
+    ArticleItem
   }
 }
 </script>

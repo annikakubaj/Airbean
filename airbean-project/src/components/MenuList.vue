@@ -7,11 +7,11 @@
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in articles"  v-bind:key="art.id">
 
-      <!-- Wrapper runt MenuItem. Har för mig att v-bind och v-on:click kan krocka annars -->
+      <!-- Wrapper runt ArticleItem. Har för mig att v-bind och v-on:click kan krocka annars -->
       <div>
 
-        <!-- Skriver in datan i MenuItem, oh skriver ut MenuItem -->
-        <MenuItem v-bind:menuItemData="art"/>
+        <!-- Skriver in datan i ArticleItem, oh skriver ut ArticleItem -->
+        <ArticleItem v-bind:articleItemData="art"/>
 
         <button v-on:click="addToCart(art)">I AM BUTTON</button>
 
@@ -27,11 +27,11 @@
   // PLAN:
   // Visa upp cartItem.amount i menyn.
 
-  // Fixa knapp inom v-if på MenuItem (Lägg till)
-  //   Kör en vanlig button, klipp in v-on:click på den istället för rakt i MenuItem-taggen
+  // Fixa knapp inom v-if på ArticleItem (Lägg till)
+  //   Kör en vanlig button, klipp in v-on:click på den istället för rakt i ArticleItem-taggen
   // Fixa upp/ner-pil på MenueItem i v-else (öka minska antal) - TA HJÄLP AV TOBBE
 
-import MenuItem from '@/components/MenuItem.vue'
+import ArticleItem from '@/components/ArticleItem.vue'
 
 export default {
 
@@ -55,7 +55,7 @@ export default {
   },
   components: {
 
-      MenuItem
+      ArticleItem
   }
 }
 </script>

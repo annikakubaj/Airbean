@@ -6,17 +6,17 @@
   -->
 
   <!-- Skriver ut datan i menyn, givet att det finns data i menyn -->
-  <div v-if="menuItemData" >
+  <div v-if="articleItemData" >
     <h2>
-      {{menuItemData.name}}
+      {{articleItemData.name}}
     </h2>
 
     <p>
-      {{menuItemData.description}}
+      {{articleItemData.description}}
     </p>
 
     <p>
-      PRICE: {{menuItemData.price}}
+      PRICE: {{articleItemData.price}}
     </p>
 
   </div>
@@ -51,7 +51,7 @@
 export default {
   props: [
 
-    'menuItemData',
+    'articleItemData',
     'cartItemData'
   ],
   computed: {

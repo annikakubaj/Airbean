@@ -24,7 +24,10 @@
             <!-- Printar ut namnen och mängden på artiklarna i ordern -->
             <div v-for="art in ord.articles"  v-bind:key="art.id">
 
-                {{art.amount}} {{art.name}}
+                <div v-if="art.amount > 0"> <!-- Visar bara artikeln ifall amount är mer än 0 -->
+                    {{art.amount}} {{art.name}}
+                </div>
+                
             </div>
 
       </div>

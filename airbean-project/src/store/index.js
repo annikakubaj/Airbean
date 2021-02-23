@@ -118,7 +118,7 @@ export default new Vuex.Store({
         total: this.getters.orderSum + "kr",
 
         // TODO:
-        // Loopa igenom carten och pusha in alla MenuItems i en liten array som ligger i order-objektet.
+        // Loopa igenom carten och pusha in alla ArticleItems i en liten array som ligger i order-objektet.
         articles: articles
       }
 
