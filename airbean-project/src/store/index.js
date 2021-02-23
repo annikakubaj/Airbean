@@ -123,12 +123,7 @@ export default new Vuex.Store({
       }
 
       this.state.cart = [] // Tömmer cart
-
-      articles.forEach(art => {
-        console.log(art.name)
-      });
       
-
       this.state.orderhistory.push(order) // Forslar in objektet i orderhistory
     }
   },

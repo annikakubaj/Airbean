@@ -21,7 +21,13 @@
           <h3 class="ordernummer"> {{ord.number}} </h3>
           <p> {{ord.total}} </p>
 
-          </div>
+            <!-- Printar ut namnen och mängden på artiklarna i ordern -->
+            <div v-for="art in ord.articles"  v-bind:key="art.id">
+
+                {{art.amount}} {{art.name}}
+            </div>
+
+      </div>
 
 
 
