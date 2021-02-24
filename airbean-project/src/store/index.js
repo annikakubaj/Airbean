@@ -58,19 +58,19 @@ export default new Vuex.Store({
   },
 
   getters: { // Getters funkar som computed properites fast i store
+
     articlesInCart: function(state){
 
       let sum = 0
 
       state.cart.forEach(art => { // Loopar igenom cart ("art" är den specifika artikel som loopen tittar för tillfället)
         
-        console.log(art.amount)
         sum += art.amount // räknar ihop antalet artiklar
       });
 
       return sum;
     },
-    orderSum: function(state){ // <----- orderSum. Just nu hämtas den i CartList.
+    orderSum: function(state){ 
 
       let sum = 0
 
@@ -91,7 +91,7 @@ export default new Vuex.Store({
 
       if (foundCartItem){
 
-        // Ökar amount
+        // Ökar amount med 1
         foundCartItem.amount ++;  
 
       } else {
@@ -103,13 +103,27 @@ export default new Vuex.Store({
     },
     onPurchase: function() {
 
+      // Fixa in all info här, så kan vi välja sen vad vi skriver ut?
+      // Name etc
+
+      let articles = []
+      this.state.cart.forEach(art => {
+        
+        articles.push(art)
+      });
+
       let order = { // Bygger objektet som ska pushas in i orderhistory
         id: Date.now().toString(),
         number: Date.now().toString(),
-        total: this.getters.orderSum + "kr"
+        total: this.getters.orderSum + "kr",
+
+        // TODO:
+        // Loopa igenom carten och pusha in alla ArticleItems i en liten array som ligger i order-objektet.
+        articles: articles
       }
 
       this.state.cart = [] // Tömmer cart
+      
       this.state.orderhistory.push(order) // Forslar in objektet i orderhistory
     }
   },

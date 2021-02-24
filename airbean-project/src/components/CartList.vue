@@ -1,25 +1,32 @@
 <template>
   <div>
 
-    <h2>ORDER SUM {{orderSum}}:-</h2>
-    <router-link to="/status"><button v-on:click="onPurchase()">TAKE MY MONEY</button></router-link>
+    
+    <div v-if="orderSum > 0">
+      
+      <h2>ORDER SUM {{orderSum}}:-</h2>
+      <router-link to="/status"><button v-on:click="onPurchase()">TAKE MY MONEY</button></router-link>
+    </div>
+
 
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in cart"  v-bind:key="art.id">
+      
+      <div v-if="art.amount > 0"> <!-- Tar bort artikeln ifall amount inte är över 0 -->
+        
+        <ArticleItem v-bind:cartItemData="art"/>
 
-      <!-- Skriver in datan i MenuItem, och skriver ut MenuItem -->
-      <MenuItem v-bind:cartItemData="art"/>
-    
-      <!-- Reglage för amount -->
-      <input type="number" min="1" v-model.number="art.amount">
+        <!-- Reglage för amount -->
+        <input type="number" v-model.number="art.amount">
 
+      </div>
     </div>
 
   </div>
 </template>
 
 <script>
-import MenuItem from '@/components/MenuItem.vue'
+import ArticleItem from '@/components/ArticleItem.vue'
 
 export default {
 
@@ -48,7 +55,7 @@ export default {
   ],
   components: {
 
-    MenuItem
+    ArticleItem
   }
 }
 </script>

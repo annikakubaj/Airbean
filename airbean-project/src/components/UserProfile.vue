@@ -12,26 +12,30 @@
           </div>
           
 
-  <section class="orderhistory">
-
+  
+<div class="orderhistory">
+ 
       <h2> Orderhistorik </h2>
-
+ 
       <div v-for="ord in orderhistory"  v-bind:key="ord.id">
-
-        <div class="sum">
-          <h3> #AB{{ord.number}} </h3>
-           
-          <p> Total ordersumma  {{ord.total}} </p>
-         </div>
-
-
-
+ 
+          <h3 class="ordernummer"> {{ord.number}} </h3>
+          <p> {{ord.total}} </p>
+ 
+            <!-- Printar ut namnen och mängden på artiklarna i ordern -->
+            <div v-for="art in ord.articles"  v-bind:key="art.id">
+ 
+                <div v-if="art.amount > 0"> <!-- Visar bara artikeln ifall amount är mer än 0 -->
+                    {{art.amount}} {{art.name}}
+                </div>
+                
+            </div>
+ 
       </div>
+    </div>
 
-      
-
-  </section>
-  </section>
+       </section>
+  
 </template>
 
 <script>
