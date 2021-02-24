@@ -6,6 +6,7 @@
     <img class ="navicon" src="../assets/navicon.svg" alt="navicon" @click="showNav">
 
 
+
     </div>
     </div>
 

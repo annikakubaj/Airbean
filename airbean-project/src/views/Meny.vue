@@ -1,7 +1,7 @@
 <template>
-  <div class="menu">
+  <div>
     <Header/>
-
+    <h2>Meny</h2>
     <MenuList />
 
   </div>
@@ -20,6 +20,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+h2{
+  font-family: serif;
+  font-size: 42px;
+  color:rgba(47, 41, 38, 1);
+  margin: 15px;
+}
 
 </style>
