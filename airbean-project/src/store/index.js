@@ -59,6 +59,17 @@ export default new Vuex.Store({
 
   getters: { // Getters funkar som computed properites fast i store
 
+    // Om man inte är inloggad när man checkar ut sina varor så ska man komma till inloggningssidan.
+      // Lagra user i store
+
+
+    // Popup
+    // Flytta "addToCart" till en knapp
+    // Codealong - forsla upp userName i store
+
+    // 
+
+
     articlesInCart: function(state){
 
       let sum = 0
@@ -103,22 +114,20 @@ export default new Vuex.Store({
     },
     onPurchase: function() {
 
-      // Fixa in all info här, så kan vi välja sen vad vi skriver ut?
-      // Name etc
-
+      // Mata in all info om artiklarna i ordern in i articles
       let articles = []
+
       this.state.cart.forEach(art => {
         
         articles.push(art)
       });
 
-      let order = { // Bygger objektet som ska pushas in i orderhistory
+      // Bygger objektet som ska pushas in i orderhistory
+      let order = { 
+        
         id: Date.now().toString(),
         number: Date.now().toString(),
         total: this.getters.orderSum + "kr",
-
-        // TODO:
-        // Loopa igenom carten och pusha in alla ArticleItems i en liten array som ligger i order-objektet.
         articles: articles
       }
 

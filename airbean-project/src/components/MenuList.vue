@@ -4,6 +4,11 @@
     <!-- Visar hur många artiklar som ligger i cart -->
     <h3>Articles in cart: {{articlesInCart}}</h3>
     
+    <!-- Modal -->
+    <div v-if="showGdpr">
+      <ArticleModal v-on:killModal="closeModal"/>
+    </div>
+
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in articles"  v-bind:key="art.id">
 
@@ -25,15 +30,20 @@
 
 
   // PLAN:
-  // Visa upp cartItem.amount i menyn.
-
-  // Fixa knapp inom v-if på ArticleItem (Lägg till)
-  //   Kör en vanlig button, klipp in v-on:click på den istället för rakt i ArticleItem-taggen
-  // Fixa upp/ner-pil på MenueItem i v-else (öka minska antal) - TA HJÄLP AV TOBBE
+  //  När en användare klickar på en produkt ska en ruta visas med mer information om varan. 
+  //  Detta kan exempelvis göras som en popup.
 
 import ArticleItem from '@/components/ArticleItem.vue'
+import ArticleModal from '@/components/ArticleModal.vue'
 
 export default {
+
+  data: function(){
+    return {
+
+      showGdpr: true
+    }
+  },
 
   computed: {
 
@@ -48,14 +58,20 @@ export default {
   },
   methods: {
 
-    addToCart(art) { // Ber Store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
+    addToCart: function(art) { // Ber Store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
 
       this.$store.commit('addToCart', art.id)
+    },
+    closeModal: function(){
+
+      localStorage.setItem('gdpr', true);
+      this.showGdpr = false;
     }
   },
   components: {
 
-      ArticleItem
+      ArticleItem,
+      ArticleModal
   }
 }
 </script>
