@@ -54,7 +54,12 @@ export default new Vuex.Store({
       cart: [
         
       ],
-      orderhistory: []
+      orderhistory: [
+
+      ],
+      popup: [
+
+      ]
   },
 
   getters: { // Getters funkar som computed properites fast i store
@@ -111,6 +116,16 @@ export default new Vuex.Store({
         art.amount += 1;
         state.cart.push(art) // Forslar in artikeln i "cart" i Store
       }
+    },
+    openPopup: function(state, payload){
+      state.popup = []
+      const art = state.articles.find(art => art.id == payload); // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
+      
+
+      console.log("OPEN POPUP")
+      console.log(art)
+
+      state.popup.push(art) 
     },
     onPurchase: function() {
 

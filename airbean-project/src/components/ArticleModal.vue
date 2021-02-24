@@ -10,6 +10,7 @@
 
     <button v-on:click="killModal">Okay</button>
 
+    {{selectedItemData}}
   </div>
 
 </div>
@@ -23,9 +24,15 @@ export default {
 
         killModal: function(){
 
-          console.log('CONFIRMED!')
           this.$emit('killModal') 
         }
+    },
+    computed: {
+
+      selectedItemData: function(){
+
+        return this.$store.state.popup[0]
+      }
     }
 }
 </script>

@@ -5,7 +5,7 @@
     <h3>Articles in cart: {{articlesInCart}}</h3>
     
     <!-- Modal -->
-    <div v-if="showGdpr">
+    <div v-if="showPopup">
       <ArticleModal v-on:killModal="closeModal"/>
     </div>
 
@@ -15,8 +15,12 @@
       <!-- Wrapper runt ArticleItem. Har för mig att v-bind och v-on:click kan krocka annars -->
       <div class="menu">
 
-        <!-- Skriver in datan i ArticleItem, oh skriver ut ArticleItem -->
+        <div v-on:click="openPopup(art)">
+
+        <!-- Skriver in datan i ArticleItem, och skriver ut ArticleItem -->
         <ArticleItem class="menu" v-bind:articleItemData="art"/>
+
+        </div>
         
         <button v-on:click="addToCart(art)"> + </button>
 
@@ -41,7 +45,7 @@ export default {
   data: function(){
     return {
 
-      showGdpr: true
+      showPopup: false
     }
   },
 
@@ -62,10 +66,14 @@ export default {
 
       this.$store.commit('addToCart', art.id)
     },
+    openPopup: function(art){
+
+      this.showPopup = true;
+      this.$store.commit('openPopup', art.id)
+    },
     closeModal: function(){
 
-      localStorage.setItem('gdpr', true);
-      this.showGdpr = false;
+      this.showPopup = false;
     }
   },
   components: {
