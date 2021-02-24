@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class>
 
     <!-- Visar hur många artiklar som ligger i cart -->
     <h3>Articles in cart: {{articlesInCart}}</h3>
@@ -10,15 +10,15 @@
     </div>
 
     <!-- PRINTAR UT MENYN -->
-    <div v-for="art in articles"  v-bind:key="art.id">
+    <div class="menu" v-for="art in articles"  v-bind:key="art.id">
 
       <!-- Wrapper runt ArticleItem. Har för mig att v-bind och v-on:click kan krocka annars -->
-      <div>
+      <div class="menu">
 
         <!-- Skriver in datan i ArticleItem, oh skriver ut ArticleItem -->
-        <ArticleItem v-bind:articleItemData="art"/>
-
-        <button v-on:click="addToCart(art)">I AM BUTTON</button>
+        <ArticleItem class="menu" v-bind:articleItemData="art"/>
+        
+        <button v-on:click="addToCart(art)"> + </button>
 
       </div>
     </div>
@@ -76,6 +76,24 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.menu{
+  display:grid;
+  grid-template-columns:75px 200px 75px;
+  grid-template-rows: 40px 40px; 
+} 
+button{
+  border: none;
+  border-radius: 70%;
+  width:35px;
+  height:35px;
+  background-color:rgba(47, 41, 38, 1);
+  color:white;
+  font-size: 25px;
+  grid-row:1 /span 2;
+  justify-self: center;
+  align-self: center;
+}
 
 </style>

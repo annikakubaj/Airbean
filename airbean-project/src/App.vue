@@ -40,6 +40,7 @@ html{
 
 body{
   width:375px;
-  background-color:rgba(243, 228, 225, 1)
+  background-image: linear-gradient(white, rgba(243, 228, 225, 1));
+
 }
 </style>
