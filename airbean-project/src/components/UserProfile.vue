@@ -1,57 +1,63 @@
 <template>
-
 <section class="wrapper">
   
-  <img class="profilBild" src="../assets/Profile.svg" alt="profilePicture">
+    <img class="profilBild" src="../assets/Profile.svg" alt="profilePicture">
 
-  <div class="profilinfo">
-      <div v-for="user in user" v-bind:key="user.index">
-          <h2> {{user.name}} </h2>
-          <p> {{user.email}} </p> 
-          </div>
-          </div>
+    <div class="profilinfo">
+        <div v-for="user in user" v-bind:key="user.index">
+            <h2> {{user.name}} </h2>
+            <p> {{user.email}} </p> 
+        </div>
+    </div>
           
 
   
-      <div class="orderhistory">
-      <h2> Orderhistorik </h2>
-      <section class="container">
-        
-      <div v-for="ord in orderhistory"  v-bind:key="ord.id" class="best">
-          
- <div class="left">
-          <h3 class="ordernummer"> {{ord.number}} </h3>
-          <!-- Printar ut namnen och mängden på artiklarna i ordern -->
-            <div v-for="art in ord.articles"  v-bind:key="art.id">
- 
-                <div v-if="art.amount > 0"> <!--  Visar bara artikeln ifall amount är mer än 0  -->
-                     {{art.amount}} {{art.name}} 
-                </div>
-                </div> 
-                </div>
-                
-                
-            
-            <div class="rightside">
-          <p> datum  </p>
-          <p> {{ord.total}} </p>
-          </div>
-          </div>
+    <div class="orderhistory">
 
-        <div class="rightTotalSum">  
-            <h3 class="total"> Totalt spenderat </h3>
-            <h3 class="sum"> 1699 kr </h3> 
+        <h2> Orderhistorik </h2>
+
+        <section class="container">
+            
+            <div v-for="ord in orderhistory"  v-bind:key="ord.id" class="best">
+                
+                <div class="left">
+
+                    <h3 class="ordernummer"> {{ord.number}} </h3>
+
+                    <!-- Printar ut namnen och mängden på artiklarna i ordern -->
+                    <div v-for="art in ord.articles"  v-bind:key="art.id">
+            
+                        <div v-if="art.amount > 0"> <!--  Visar bara artikeln ifall amount är mer än 0  -->
+
+                            {{art.amount}} {{art.name}} 
+                        </div>
+                    </div> 
+                </div>
+                            
+                            
+                        
+                <div class="rightside">
+
+                    <p> datum  </p>
+                    <p> {{ord.total}} </p>
+                </div>
             
             </div>
- 
-            
- 
-      </section>
+
+            <div class="rightTotalSum">  
+
+                <h3 class="total"> Totalt spenderat </h3>
+                <h3 class="sum"> 1699 kr </h3> 
+                
+            </div>
+    
+                
+    
+        </section>
     </div>
     
 
-       </section>
-  
+</section>
 </template>
 
 <script>
