@@ -6,8 +6,6 @@
     <!-- Krysset i högra hörnet -->
     <span class="close" v-on:click="killModal">&times;</span>
 
-    <p>Arabica and/or Robusta</p>
-
     <button v-on:click="killModal">Okay</button>
 
     {{selectedItemData}}

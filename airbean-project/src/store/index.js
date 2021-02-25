@@ -57,6 +57,9 @@ export default new Vuex.Store({
       orderhistory: [
 
       ],
+      user: [
+
+      ],
       popup: [
 
       ]
@@ -67,12 +70,9 @@ export default new Vuex.Store({
     // Om man inte är inloggad när man checkar ut sina varor så ska man komma till inloggningssidan.
       // Lagra user i store
 
-
-    // Popup
-    // Flytta "addToCart" till en knapp
-    // Codealong - forsla upp userName i store
-
-    // 
+    // Codealong - forsla upp "person" från NewProfile till store, och sedan till ??
+    // ersätt rad 
+    // forsla 
 
 
     articlesInCart: function(state){
@@ -149,6 +149,12 @@ export default new Vuex.Store({
       this.state.cart = [] // Tömmer cart
       
       this.state.orderhistory.push(order) // Forslar in objektet i orderhistory
+    },
+    saveUser: function (state, payload) {
+
+      
+      state.user.push(payload) // Forslar in artikeln i "cart" i Store
+      console.log(state.user)
     }
   },
   actions: {

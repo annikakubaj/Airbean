@@ -12,7 +12,7 @@
             <input type="text" v-model="person.email">
 
             <p class="radio"><input class="radio-btn" type="radio"> <label class="radio-label"> GDPR OK! </label></p>
-            <input class="button" type="button" value="Brew me a cup!" v-on:click="saveUser"> 
+            <input class="button" type="button" value="Brew me a cup!" v-on:click="saveUser(person)"> 
         </form>
     </div>
     </div>
@@ -25,33 +25,25 @@
 
 export default {
 
-
-
-data: function() { 
+  data: function() { 
     return {
+
       person: {
-      name:"",
-      email:"",
-      },
+
+        name:"",
+        email:""
+      }
     }
-     
+  },
+  methods: {
 
-    },
+    saveUser: function(person) {
+            
+      this.$store.commit('saveUser', person) // Säger åt store att köra mutationen saveUser, och skickar med datan
 
-      methods: {
-
-      saveUser: function() {
-        this.$root.$data.user.push(this.person);
-        console.log(this.person);
-        this.$router.push("/UserProfile");
-
-       
-        },
-       
-
-},
-
-
+      this.$router.push("/UserProfile"); // Navigerar till UserProfile
+    }
+  }
 }
 </script>
 

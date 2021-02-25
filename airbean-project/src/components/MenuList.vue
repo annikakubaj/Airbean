@@ -17,8 +17,8 @@
 
         <div v-on:click="openPopup(art)">
 
-        <!-- Skriver in datan i ArticleItem, och skriver ut ArticleItem -->
-        <ArticleItem class="menu" v-bind:articleItemData="art"/>
+          <!-- Skriver in datan i ArticleItem, och skriver ut ArticleItem -->
+          <ArticleItem class="menu" v-bind:articleItemData="art"/>
 
         </div>
         
@@ -51,7 +51,7 @@ export default {
 
   computed: {
 
-    articles: function(){ // Hämtar menyn från Store
+    articles: function(){ // Hämtar menyn från store
 
       return this.$store.state.articles;
     },
@@ -62,7 +62,7 @@ export default {
   },
   methods: {
 
-    addToCart: function(art) { // Ber Store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
+    addToCart: function(art) { // Ber store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
 
       this.$store.commit('addToCart', art.id)
     },

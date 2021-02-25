@@ -59,8 +59,9 @@ export default {
       return this.$store.state.orderhistory;
     },
 
-    user() {
-        return this.$root.$data.user
+    user: function() {
+
+        return this.$store.state.user;
     }
   },
 
