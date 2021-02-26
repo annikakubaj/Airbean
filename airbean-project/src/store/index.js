@@ -13,48 +13,63 @@ export default new Vuex.Store({
           name: "Bryggkaffe",
           description: "Bryggd på månadens bönor",
           price: "49",
-          amount: 0
+          amount: 0,
+          info: "Lättrostat kaffe som dricks bäst i sin rena form. Kaffet är mindre intensivt i smaken men har ett bredare spektrum av smaker. Dessutom har lättrostat kaffe en högre koffeinhalt eftersom koffeinet försvinner ju kraftigare rostning.",
+          rost: "Lättrost"
         },
         {
           id: 2,
           name: "Caffè Doppio",
           description: "Bryggd på andra månadens bönor",
           price: "49",
-          amount: 0
+          amount: 0,
+          info: "En dubbel och fyllig espresso med tjock och härlig crema",
+          rost: "Mörkrost"
         },   
         {
           id: 3,
           name: "Cappuccino",
           description: "Bryggd på tredje månadens bönor",
           price: "49",
-          amount: 0
+          amount: 0,
+          info: "Vår cappuccino serveras med en enkel men stark espresso som bas tillsammans med lika delar ångad mjölk och mjölkskum.",
+          rost: "Mörkrost"
         },     
         {
           id: 4,
           name: "Latte Macchiato",
           description: "Bryggd på fjärde månadens bönor",
           price: "49",
-          amount: 0
+          amount: 0,
+          info: "Vår Macchiato består av 4/5 skummad mjölk toppad med en stark espresso.",
+          rost: "Mellanrost"
         },     
         {
           id: 5,
           name: "Kaffe Latte",
           description: "Bryggd på femte månadens bönor",
           price: "49",
-          amount: 0
+          amount: 0,
+          info: "Vår Kaffe Latte är gjord på en tredjedel espresso, två tredjedelar ångad mjölk med ett tunt lager av mjölkskum på toppen.",
+          rost: "Mellanrost"
         },     
         {
           id: 6,
           name: "Cortado",
           description: "Bryggd på sjätte månadens bönor",
           price: "39", 
-          amount: 0
+          amount: 0,
+          info: "Består av lika delar espresso och ångad mjölk.",
+          rost: "Mörkrost"
         }
       ],
       cart: [
         
       ],
       orderhistory: [
+
+      ],
+      user: [
 
       ],
       popup: [
@@ -67,12 +82,9 @@ export default new Vuex.Store({
     // Om man inte är inloggad när man checkar ut sina varor så ska man komma till inloggningssidan.
       // Lagra user i store
 
-
-    // Popup
-    // Flytta "addToCart" till en knapp
-    // Codealong - forsla upp userName i store
-
-    // 
+    // Codealong - forsla upp "person" från NewProfile till store, och sedan till ??
+    // ersätt rad 
+    // forsla 
 
 
     articlesInCart: function(state){
@@ -103,7 +115,7 @@ export default new Vuex.Store({
     addToCart: function (state, payload) {
 
       const art = state.articles.find(art => art.id == payload); // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
-      const foundCartItem = state.cart.find(cartItem => { return art.id == cartItem.id }) 
+      const foundCartItem = state.cart.find(function(cartItem) { return art.id == cartItem.id }) 
 
       if (foundCartItem){
 
@@ -113,8 +125,10 @@ export default new Vuex.Store({
       } else {
 
         // Ökar amount och klonar över artikeln till cart
-        art.amount += 1;
-        state.cart.push(art) // Forslar in artikeln i "cart" i Store
+        let artCopy = JSON.parse(JSON.stringify(art))
+
+        artCopy.amount ++; 
+        state.cart.push(artCopy) // Forslar in artikeln i "cart" i Store
       }
     },
     openPopup: function(state, payload){
@@ -127,12 +141,12 @@ export default new Vuex.Store({
 
       state.popup.push(art) 
     },
-    onPurchase: function() {
+    onPurchase: function(state) {
 
       // Mata in all info om artiklarna i ordern in i articles
       let articles = []
 
-      this.state.cart.forEach(art => {
+      state.cart.forEach(art => {
         
         articles.push(art)
       });
@@ -146,9 +160,15 @@ export default new Vuex.Store({
         articles: articles
       }
 
-      this.state.cart = [] // Tömmer cart
+      state.cart = [] // Tömmer cart??
+      //this.state.cart.length = 0 // Tömmer cart??
+      //this.state.cart.splice(0,this.state.cart.length)
       
-      this.state.orderhistory.push(order) // Forslar in objektet i orderhistory
+      state.orderhistory.push(order) // Forslar in objektet i orderhistory
+    },
+    saveUser: function (state, payload) {
+
+      state.user.push(payload) // Forslar in artikeln i "cart" i Store
     }
   },
   actions: {
