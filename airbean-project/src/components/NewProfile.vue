@@ -6,14 +6,16 @@
         <p class="second">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.</p>
         <form  @submit.prevent>
             <p class="label"> Namn </p>
-            <input type="text" v-model="person.name">
+            <input type="text" v-model="name" required>
 
             <p class="label"> E-post </p>
-            <input type="text" v-model="person.email">
+            <input type="text" v-model="email" required>
 
             <p class="radio"><input class="radio-btn" type="radio"> <label class="radio-label"> GDPR OK! </label></p>
             <input class="button" type="button" value="Brew me a cup!" v-on:click="saveUser(person)"> 
         </form>
+
+        <p v-for="er in errors" :key="er">{{er}}</p>
     </div>
     </div>
 </template>
@@ -27,21 +29,34 @@ export default {
 
   data: function() { 
     return {
-
-      person: {
-
         name:"",
-        email:""
-      }
+        email:"",
+        errors: []
     }
   },
   methods: {
 
-    saveUser: function(person) {
-            
-      this.$store.commit('saveUser', person) // Säger åt store att köra mutationen saveUser, och skickar med datan
+    saveUser: function() {
 
-      this.$router.push("/UserProfile"); // Navigerar till UserProfile
+    if(this.name == '' || this.name == null){
+
+
+        this.errors.push("Du har glömt att fylla i namn!")
+    }
+
+    if(this.email == '' || this.email == null){
+
+         this.errors.push("Du har glömt att fylla i din email!")
+    }
+
+    if(this.errors.length == 0){
+
+        const person = {name: this.name, email: this.email};
+        this.$store.commit('saveUser', person) // Säger åt store att köra mutationen saveUser, och skickar med datan
+
+        this.$router.push("/UserProfile"); // Navigerar till UserProfile
+    }
+   
     }
   }
 }
