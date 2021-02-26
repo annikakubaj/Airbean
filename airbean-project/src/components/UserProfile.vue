@@ -22,7 +22,7 @@
                 
                 <div class="left">
 
-                    <h3 class="ordernummer"> {{ord.number}} </h3>
+                    <h3 class="ordernummer"> Ordernummer: {{ord.number}} </h3>
 
                     <!-- Printar ut namnen och mängden på artiklarna i ordern -->
                     <div v-for="art in ord.articles"  v-bind:key="art.id">
@@ -47,7 +47,7 @@
             <div class="rightTotalSum">  
 
                 <h3 class="total"> Totalt spenderat </h3>
-                <h3 class="sum"> 1699 kr </h3> 
+                <h3 class="sum"> {{totalMoneySpent}} kr </h3> 
                 
             </div>
     
@@ -67,14 +67,19 @@
 export default {
     computed: {
 
-    orderhistory: function(){ // Hämtar menyn från Store
+    orderhistory: function(){ // Hämtar orderHistory från store
 
       return this.$store.state.orderhistory;
     },
 
-    user: function() {
+    user: function() { // Hämtar user från store
 
         return this.$store.state.user;
+    },
+
+    totalMoneySpent: function() { // Hämtar totalMoneySpent från store
+
+      return this.$store.getters.totalMoneySpent;
     }
   },
 

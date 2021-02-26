@@ -79,14 +79,6 @@ export default new Vuex.Store({
 
   getters: { // Getters funkar som computed properites fast i store
 
-    // Om man inte är inloggad när man checkar ut sina varor så ska man komma till inloggningssidan.
-      // Lagra user i store
-
-    // Codealong - forsla upp "person" från NewProfile till store, och sedan till ??
-    // ersätt rad 
-    // forsla 
-
-
     articlesInCart: function(state){
 
       let sum = 0
@@ -108,7 +100,18 @@ export default new Vuex.Store({
       });
 
       return sum;
-    }
+    },
+    totalMoneySpent: function(state) {
+
+      let sum = 0
+
+      state.orderhistory.forEach(order => { // Loopar igenom cart ("art" är den specifika artikel som loopen tittar för tillfället)
+        
+        sum += order.total
+      });
+
+      return sum;
+    } 
   },
   mutations: {
 
@@ -124,20 +127,19 @@ export default new Vuex.Store({
 
       } else {
 
-        // Ökar amount och klonar över artikeln till cart
+        // Dödar pekaren som bor i art
         let artCopy = JSON.parse(JSON.stringify(art))
 
+        // Ökar amount och klonar över artikeln till cart
         artCopy.amount ++; 
-        state.cart.push(artCopy) // Forslar in artikeln i "cart" i Store
+        state.cart.push(artCopy)
       }
     },
     openPopup: function(state, payload){
       state.popup = []
-      const art = state.articles.find(art => art.id == payload); // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
-      
 
-      console.log("OPEN POPUP")
-      console.log(art)
+      // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
+      const art = state.articles.find(art => art.id == payload); 
 
       state.popup.push(art) 
     },
@@ -156,7 +158,7 @@ export default new Vuex.Store({
         
         id: Date.now().toString(),
         number: Date.now().toString(),
-        total: this.getters.orderSum + "kr",
+        total: this.getters.orderSum, // <--- TOG BORT " + 'kr'"
         articles: articles
       }
 
