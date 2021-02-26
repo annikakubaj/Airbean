@@ -3,7 +3,16 @@
 
     <!-- Visar hur många artiklar som ligger i cart -->
     <h3>Articles in cart: {{articlesInCart}}</h3>
-    
+       <div class="drop-down">
+        <label for="dropdown">Filtrera: </label>
+        <select name="filter">
+        <option value="Alla">Visa alla</option>
+        <option value="Lättrost">Lättrost</option>
+        <option value="Mellanrost">Mellanrost</option>
+        <option value="Mörkrost">Mörkrost</option>
+        </select>
+        </div>
+        
     <!-- Modal -->
     <div v-if="showPopup">
       <ArticleModal v-on:killModal="closeModal"/>
@@ -85,6 +94,26 @@ export default {
 </script>
 
 <style scoped>
+
+label{
+  color:rgba(47, 41, 38, 1);
+  font-size: 13px;
+  
+}
+
+.drop-down{
+  text-align: left;
+  margin: 25px 25px 10px;
+
+
+}
+
+select{
+  border:none;
+  color:rgba(47, 41, 38, 1);
+  font-size: 13px;
+  background-color: rgb(255, 248, 248);
+}
 
 .menu{
   display:grid;
