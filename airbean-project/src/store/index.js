@@ -103,7 +103,7 @@ export default new Vuex.Store({
     addToCart: function (state, payload) {
 
       const art = state.articles.find(art => art.id == payload); // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
-      const foundCartItem = state.cart.find(cartItem => { return art.id == cartItem.id }) 
+      const foundCartItem = state.cart.find(function(cartItem) { return art.id == cartItem.id }) 
 
       if (foundCartItem){
 
@@ -113,8 +113,10 @@ export default new Vuex.Store({
       } else {
 
         // Ökar amount och klonar över artikeln till cart
-        art.amount += 1;
-        state.cart.push(art) // Forslar in artikeln i "cart" i Store
+        let artCopy = JSON.parse(JSON.stringify(art))
+
+        artCopy.amount ++; 
+        state.cart.push(artCopy) // Forslar in artikeln i "cart" i Store
       }
     },
     openPopup: function(state, payload){
@@ -127,12 +129,12 @@ export default new Vuex.Store({
 
       state.popup.push(art) 
     },
-    onPurchase: function() {
+    onPurchase: function(state) {
 
       // Mata in all info om artiklarna i ordern in i articles
       let articles = []
 
-      this.state.cart.forEach(art => {
+      state.cart.forEach(art => {
         
         articles.push(art)
       });
@@ -146,15 +148,15 @@ export default new Vuex.Store({
         articles: articles
       }
 
-      this.state.cart = [] // Tömmer cart
+      state.cart = [] // Tömmer cart??
+      //this.state.cart.length = 0 // Tömmer cart??
+      //this.state.cart.splice(0,this.state.cart.length)
       
-      this.state.orderhistory.push(order) // Forslar in objektet i orderhistory
+      state.orderhistory.push(order) // Forslar in objektet i orderhistory
     },
     saveUser: function (state, payload) {
 
-      
       state.user.push(payload) // Forslar in artikeln i "cart" i Store
-      console.log(state.user)
     }
   },
   actions: {
