@@ -8,7 +8,7 @@
 
     <button v-on:click="killModal">Okay</button>
 
-    {{selectedItemData}}
+    {{selectedItemData.info}}
   </div>
 
 </div>

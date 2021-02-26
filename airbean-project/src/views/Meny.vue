@@ -3,6 +3,7 @@
     <Header/>
     <h2>Meny</h2>
     <MenuList />
+  
 
   </div>
 </template>

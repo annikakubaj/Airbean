@@ -26,7 +26,7 @@
 
       </div>
     </div>
-
+  <img class="footer" src="../assets/footer.svg" />
   </div>
 </template>
 
@@ -102,6 +102,10 @@ button{
   grid-row:1 /span 2;
   justify-self: center;
   align-self: center;
+}
+
+.footer{
+  padding-top: 25px;
 }
 
 </style>
