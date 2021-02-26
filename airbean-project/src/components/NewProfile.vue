@@ -12,7 +12,9 @@
             <input type="text" v-model="person.email">
 
             <p class="radio"><input class="radio-btn" type="radio"> <label class="radio-label"> GDPR OK! </label></p>
-            <input class="button" type="button" value="Brew me a cup!" v-on:click="saveUser"> 
+
+            <button v-on:click="saveUser">  Brew me a cup!   </button>
+            <!-- <button v-on:click="saveUser"> click </button> -->
         </form>
     </div>
     </div>
@@ -120,7 +122,7 @@ input{
 
 
 
-.button{
+button{
     border:none;
     border-radius: 50px;
     width:250px;
