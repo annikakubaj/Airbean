@@ -1,9 +1,12 @@
 <template>
     <div class="wrapper">
     <div class="register">
+
         <img class="logo" src="../assets/A.svg" alt="logo">
+
         <p class="first">Välkommen till AirBean-familjen!</p>
         <p class="second">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.</p>
+
         <form  @submit.prevent>
             <p class="label"> Namn </p>
             <input type="text" v-model="name" required>
@@ -14,9 +17,6 @@
             <p class="radio"><input class="radio-btn" type="radio"> <label class="radio-label"> GDPR OK! </label></p>
             <input class="button" type="submit" value="Brew me a cup!" v-on:click="saveUser()"> 
         </form>
-
-       
-       <p v-for="er in errors" :key="er">{{er}}</p>
         
     </div>
     </div>
@@ -33,24 +33,26 @@ export default {
     return {
         name:"",
         email:"",
-        errors: []
+        errors: false
     }
   },
   methods: {
 
     saveUser: function() {
 
-        if(this.name == '' || this.name == null){
+        this.errors = false; // Rensar errors så att den inte minns gamla errors
 
-            this.errors.push("Du har glömt att fylla i namn!")
+        if(this.name == '' || this.name == null){ // Sätter errors till true ifall man har glömt fylla i fältet
+
+            this.errors = true;
         }
 
-        if(this.email == '' || this.email == null){
+        if(this.email == '' || this.email == null){ // Sätter errors till true ifall man har glömt fylla i fältet
 
-            this.errors.push("Du har glömt att fylla i din email!")
+            this.errors = true;
         }
 
-        if(this.errors.length == 0){
+        if(this.errors == false) { // Låter valideringen gå igenom ifall det inte finns errors
 
             const person = {name: this.name, email: this.email};
             

@@ -162,9 +162,7 @@ export default new Vuex.Store({
         articles: articles
       }
 
-      state.cart = [] // Tömmer cart??
-      //this.state.cart.length = 0 // Tömmer cart??
-      //this.state.cart.splice(0,this.state.cart.length)
+      state.cart = [] // Tömmer cart
       
       state.orderhistory.push(order) // Forslar in objektet i orderhistory
     },

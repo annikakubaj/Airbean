@@ -5,7 +5,6 @@
     <CartList v-if="show === true"/>
     <h2>Meny</h2>
     <MenuList />
-  
 
   </div>
 </template>
@@ -18,9 +17,10 @@ import CartList from '../components/CartList.vue'
 export default {
 
    data() {
-   return{
+    return{
+
      show: false
-   }  
+    }  
   },
 
   components: {

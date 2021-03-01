@@ -1,6 +1,9 @@
 <template>
 
   <div v-if="close === false">
+
+
+
     <img class ="close" src="../assets/close.svg" alt="close" @click="hideDiv">
     <div>
       <p> <router-link to="/">Landing</router-link> </p>

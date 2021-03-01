@@ -4,15 +4,15 @@
     <!-- Visar hur många artiklar som ligger i cart -->
     <h3 class="cart-count">{{articlesInCart}}</h3>
 
-       <div class="drop-down">
-        <label for="dropdown">Filtrera: </label>
-        <select name="filter">
-        <option value="Alla">Visa alla</option>
-        <option value="Lättrost">Lättrost</option>
-        <option value="Mellanrost">Mellanrost</option>
-        <option value="Mörkrost">Mörkrost</option>
-        </select>
-        </div>
+    <div class="drop-down">
+      <label for="dropdown">Filtrera: </label>
+      <select name="filter">
+      <option value="Alla" v-on:>Visa alla</option>
+      <option value="Lättrost">Lättrost</option>
+      <option value="Mellanrost">Mellanrost</option>
+      <option value="Mörkrost">Mörkrost</option>
+      </select>
+    </div>
         
     <!-- Modal -->
     <div v-if="showPopup">
@@ -63,8 +63,7 @@ export default {
     articlesInCart: function() { // hämtar orderSum från store
 
       return this.$store.getters.articlesInCart;
-    },
-
+    }
   },
   methods: {
 
