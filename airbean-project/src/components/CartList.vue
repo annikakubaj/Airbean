@@ -5,7 +5,7 @@
     <div v-if="orderSum > 0">
       
       <h2>ORDER SUM {{orderSum}}:-</h2>
-      <router-link to="/status"><button v-on:click="onPurchase()">TAKE MY MONEY</button></router-link>
+      <button v-on:click="onPurchase()">TAKE MY MONEY</button>
     </div>
 
 
@@ -36,16 +36,27 @@ export default {
 
       return this.$store.state.cart;
     },
-    orderSum: function() { // hämtar orderSum från store
+    orderSum: function() { // Hämtar orderSum från store
 
       return this.$store.getters.orderSum;
+    },
+    user: function() { // Hämtar orderSum från store
+
+      return this.$store.state.user;
     }
   },
   methods: {
 
-    onPurchase: function(){ // säger åt store att köra mutationen onPurchase
+    onPurchase: function(){ // Säger åt store att köra mutationen onPurchase
     
-      this.$store.commit('onPurchase')
+      if (this.user.length == 0) {
+
+        this.$router.push("/MinProfil") // Navigerar till MinProfil
+      } else {
+
+        this.$store.commit('onPurchase')
+        this.$router.push("/Status") // Navigerar till Status
+      }
     }
   },
   props: [
