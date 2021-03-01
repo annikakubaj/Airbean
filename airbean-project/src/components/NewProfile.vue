@@ -12,10 +12,12 @@
             <input type="text" v-model="email" required>
 
             <p class="radio"><input class="radio-btn" type="radio"> <label class="radio-label"> GDPR OK! </label></p>
-            <input class="button" type="button" value="Brew me a cup!" v-on:click="saveUser()"> 
+            <input class="button" type="submit" value="Brew me a cup!" v-on:click="saveUser()"> 
         </form>
 
-        <p v-for="er in errors" :key="er">{{er}}</p>
+       
+       <p v-for="er in errors" :key="er">{{er}}</p>
+        
     </div>
     </div>
 </template>
@@ -137,6 +139,7 @@ input{
     font-weight: bold;
     font-family: serif;
 }
+
 
 
 
