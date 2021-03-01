@@ -1,14 +1,8 @@
 <template>
   <div class="cart">
 
-    
-    <div v-if="orderSum > 0">
-      
-      <h2>ORDER SUM {{orderSum}}:-</h2>
-      <button v-on:click="onPurchase()">TAKE MY MONEY</button>
-    </div>
-
-
+    <h2>Din beställning</h2>
+  
     <!-- PRINTAR UT MENYN -->
     <div v-for="art in cart"  v-bind:key="art.id">
       
@@ -17,10 +11,18 @@
         <ArticleItem v-bind:cartItemData="art"/>
 
         <!-- Reglage för amount -->
+        <div class="change-amount">
+        <button class="btn" v-on:click="decreaseAmount(art)"> - </button>
         {{art.amount}}
-        <button v-on:click="increaseAmount(art)"> + </button>
-        <button v-on:click="decreaseAmount(art)"> - </button>
+        <button class="btn" v-on:click="increaseAmount(art)"> + </button>
+        </div>
       </div>
+    </div>
+
+    <div v-if="orderSum > 0">
+      
+      <h3>Total {{orderSum}}:-</h3>
+      <button class="cart-button" v-on:click="onPurchase()">Take my money!</button>
     </div>
 
   </div>
@@ -83,11 +85,57 @@ export default {
 
 <style scoped>
 
+h2{
+  font-family: serif;
+  font-size: 32px;
+  color: rgba(47, 41, 38, 1);
+}
+
+h3{
+  text-align: left;
+  margin:70px 0px 0px 15px;
+  font-family: serif;
+  font-size: 23px;
+  color: rgba(47, 41, 38, 1);
+}
+
   .cart{
   background-color: white;
   width:350px;
   position: absolute;
+  top: 100px;
   margin: 0px 13px;
+  border-radius: 3px;
+  }
+
+.cart-button{
+    border:none;
+    border-radius: 50px;
+    width:250px;
+    height:50px;
+    background-color: rgba(47, 41, 38, 1);
+    margin:25px 50px;
+    color:white;
+    font-size:24px;
+    font-weight: bold;
+    font-family: serif;
+    
+}
+
+.change-amount{
+  width:40px;
+  height:25px;
+  display: flex;  
+  margin-left: auto;
+  margin-right: 25px;
+  position: relative;
+  top:-40px;
+  
+}
+
+.btn{
+  background-color: white;
+  border: none;
 }
 
 </style>

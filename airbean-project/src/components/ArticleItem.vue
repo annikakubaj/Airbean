@@ -23,20 +23,12 @@
 
   <!-- Skriver ut datan i cart, givet att det finns data i cart -->
   <div v-if="cartItemData" >
-    <h2>
+    <h2 class="cart-name">
       {{cartItemData.name}}
     </h2>
 
-    <p>
-      {{cartItemData.description}}
-    </p>
-
-    <p>
-      AMOUNT: {{cartItemData.amount}}
-    </p>
-
-    <p>
-      COMPUTED PRICE: {{computedPrice}}
+    <p class="computed">
+      {{computedPrice}}
     </p>
 
 
@@ -104,6 +96,21 @@ export default {
   text-align: left;
   margin-top:0px;
   grid-column-start:2;
+}
+
+.cart-name{
+  font-size: 20px;
+  font-family: serif;
+  color:rgba(47, 41, 38, 1);
+  text-align: left;
+  margin:3px 15px;
+  font-weight: bold;
+} 
+
+.computed{
+  font-size: 12px;
+  text-align: left;
+  margin: 3px 15px;
 }
 
 
