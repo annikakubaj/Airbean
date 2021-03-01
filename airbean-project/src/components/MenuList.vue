@@ -2,7 +2,8 @@
   <div class>
 
     <!-- Visar hur många artiklar som ligger i cart -->
-    <h3>Articles in cart: {{articlesInCart}}</h3>
+    <h3 class="cart-count">{{articlesInCart}}</h3>
+
        <div class="drop-down">
         <label for="dropdown">Filtrera: </label>
         <select name="filter">
@@ -95,6 +96,17 @@ export default {
 </script>
 
 <style scoped>
+
+.cart-count{
+  width: 22px;
+  background-color:rgba(229, 103, 78, 1);
+  border-radius: 50%;
+  position: relative;
+  left:340px;
+  top: -260px;
+  color:white;
+  
+}
 
 label{
   color:rgba(47, 41, 38, 1);

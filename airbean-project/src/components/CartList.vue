@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cart">
 
     
     <div v-if="orderSum > 0">
@@ -60,6 +60,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+  .cart{
+  background-color: white;
+  width:350px;
+  position: absolute;
+  margin: 0px 13px;
+}
 
 </style>
