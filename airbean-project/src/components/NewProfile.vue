@@ -12,7 +12,7 @@
             <input type="text" v-model="email" required>
 
             <p class="radio"><input class="radio-btn" type="radio"> <label class="radio-label"> GDPR OK! </label></p>
-            <input class="button" type="button" value="Brew me a cup!" v-on:click="saveUser(person)"> 
+            <input class="button" type="button" value="Brew me a cup!" v-on:click="saveUser()"> 
         </form>
 
         <p v-for="er in errors" :key="er">{{er}}</p>
@@ -38,25 +38,23 @@ export default {
 
     saveUser: function() {
 
-    if(this.name == '' || this.name == null){
+        if(this.name == '' || this.name == null){
 
+            this.errors.push("Du har glömt att fylla i namn!")
+        }
 
-        this.errors.push("Du har glömt att fylla i namn!")
-    }
+        if(this.email == '' || this.email == null){
 
-    if(this.email == '' || this.email == null){
+            this.errors.push("Du har glömt att fylla i din email!")
+        }
 
-         this.errors.push("Du har glömt att fylla i din email!")
-    }
+        if(this.errors.length == 0){
 
-    if(this.errors.length == 0){
-
-        const person = {name: this.name, email: this.email};
-        this.$store.commit('saveUser', person) // Säger åt store att köra mutationen saveUser, och skickar med datan
-
-        this.$router.push("/UserProfile"); // Navigerar till UserProfile
-    }
-   
+            const person = {name: this.name, email: this.email};
+            
+            this.$store.commit('saveUser', person) // Säger åt store att köra mutationen saveUser, och skickar med datan
+            this.$router.push("/UserProfile"); // Navigerar till UserProfile
+        }
     }
   }
 }
