@@ -4,38 +4,68 @@
     <!-- Visar hur många artiklar som ligger i cart -->
     <h3 class="cart-count">{{articlesInCart}}</h3>
 
+    <!-- Modal -->
+    <div v-if="showPopup">
+      <ArticleModal v-on:killModal="closeModal"/>
+    </div>
+
     <div class="drop-down">
       <label for="dropdown">Filtrera: </label>
-      <select name="filter">
+      <select name="filter" @change="onChange($event)">
       <option value="Alla" v-on:>Visa alla</option>
       <option value="Lättrost">Lättrost</option>
       <option value="Mellanrost">Mellanrost</option>
       <option value="Mörkrost">Mörkrost</option>
       </select>
     </div>
-        
-    <!-- Modal -->
-    <div v-if="showPopup">
-      <ArticleModal v-on:killModal="closeModal"/>
-    </div>
+    
+    <!-- PRINTAR UT DE VALDA PRODUKTERNA -->
+    <div v-if="filteredArray.length > 0">
 
-    <!-- PRINTAR UT MENYN -->
-    <div class="menu" v-for="art in articles"  v-bind:key="art.id">
+      <!-- Printar ut den filtrerade menyn -->
+      <div class="menu" v-for="art in filteredArray"  v-bind:key="art.id">
 
       <!-- Wrapper runt ArticleItem. Har för mig att v-bind och v-on:click kan krocka annars -->
-      <div class="menu">
+        <div class="menu">
 
-        <div v-on:click="openPopup(art)">
+          <!-- Gör så att artikeln zoomas in på om man klickar på den -->
+          <div v-on:click="openPopup(art)">
 
-          <!-- Skriver in datan i ArticleItem, och skriver ut ArticleItem -->
-          <ArticleItem class="menu" v-bind:articleItemData="art"/>
+            <!-- Skriver in datan i ArticleItem, och skriver ut ArticleItem -->
+            <ArticleItem class="menu" v-bind:articleItemData="art"/>
+
+          </div>
+          
+          <button v-on:click="addToCart(art)"> + </button>
 
         </div>
-        
-        <button v-on:click="addToCart(art)"> + </button>
-
       </div>
     </div>
+
+    
+    <!-- PRINTAR UT ALLA PRODUKTER OM INGET FILTER VALTS -->
+    <div v-if="filteredArray.length == 0">
+
+      <!-- Printar hela menyn -->
+      <div class="menu" v-for="art in articles"  v-bind:key="art.id">
+
+        <!-- Wrapper runt ArticleItem. Har för mig att v-bind och v-on:click kan krocka annars -->
+        <div class="menu">
+          
+          <!-- Gör så att artikeln zoomas in på om man klickar på den -->
+          <div v-on:click="openPopup(art)">
+
+            <!-- Skriver in datan i ArticleItem, och skriver ut ArticleItem -->
+            <ArticleItem class="menu" v-bind:articleItemData="art"/>
+
+          </div>
+          
+          <button v-on:click="addToCart(art)"> + </button>
+
+        </div>
+      </div>
+    </div>
+
   <img class="footer" src="../assets/footer.svg" />
   </div>
 </template>
@@ -50,7 +80,8 @@ export default {
   data: function(){
     return {
 
-      showPopup: false
+      showPopup: false,
+      filteredArray: []
     }
   },
 
@@ -79,6 +110,16 @@ export default {
     closeModal: function(){
 
       this.showPopup = false;
+    },
+    onChange(event) {
+
+      this.filteredArray = this.articles.filter(art => art.rost == event.target.value);
+
+      console.log("filteredArray:")
+      console.log(this.filteredArray)
+
+      console.log("event.target.value:")
+      console.log(event.target.value)
     }
   },
   components: {
