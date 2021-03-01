@@ -41,11 +41,6 @@
 
 <script>
 
-
-  // PLAN:
-  //  När en användare klickar på en produkt ska en ruta visas med mer information om varan. 
-  //  Detta kan exempelvis göras som en popup.
-
 import ArticleItem from '@/components/ArticleItem.vue'
 import ArticleModal from '@/components/ArticleModal.vue'
 
