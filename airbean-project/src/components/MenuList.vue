@@ -6,7 +6,7 @@
 
     <!-- Modal -->
     <div v-if="showPopup">
-      <ArticleModal v-on:killModal="closeModal"/>
+      <ArticleModal v-on:killModal="closePopup"/>
     </div>
 
     <div class="drop-down">
@@ -102,24 +102,21 @@ export default {
 
       this.$store.commit('addToCart', art.id)
     },
-    openPopup: function(art){
+    openPopup: function(art){ // Zoomar in på den valda artikeln
 
       this.showPopup = true;
       this.$store.commit('openPopup', art.id)
     },
-    closeModal: function(){
+    closePopup: function(){
 
       this.showPopup = false;
     },
-    onChange(event) {
+    onChange(event) { // filtrerar menyn
 
       this.filteredArray = this.articles.filter(art => art.rost == event.target.value);
 
-      console.log("filteredArray:")
-      console.log(this.filteredArray)
-
-      console.log("event.target.value:")
-      console.log(event.target.value)
+      // event sker då man väljer ett alternativ i dropdown-menyn
+      // filter loopar igenom articles och jämför alla artiklars "rost" med det man valde i dropdown
     }
   },
   components: {
