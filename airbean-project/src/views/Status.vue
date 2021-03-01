@@ -1,6 +1,12 @@
 <template>
   <div class="wrapper">
 
+    <div v-for="ord in orderhistory"  v-bind:key="ord.id">
+         <div class="ordernummer">
+          <h3>Ordernummer: </h3> <p> {{ord.number}} </p>
+          </div>
+      </div>
+
     
 
      <img class="statuslogo" src="../assets/status.svg" alt="statuslogo">
@@ -15,6 +21,7 @@
 <script>
 
 export default {
+
   data () {
     return {
       countDown: 13,
@@ -41,6 +48,14 @@ export default {
     this.$router.push("/UserProfile");
   },
     
+  }, 
+
+  computed: {
+
+    orderhistory: function(){ // Hämtar orderHistory från store
+
+      return this.$store.state.orderhistory;
+    },
   }
 
 }
@@ -71,6 +86,7 @@ h2 {
 
 p {
   color: white;
+  align-self: center;
 }
 
 button {
@@ -83,5 +99,15 @@ button {
   font-weight: bold;
   font-size: 24px;
 }
+
+.ordernummer {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  margin-bottom: 70px;
+
+}
+
+
 
 </style>
