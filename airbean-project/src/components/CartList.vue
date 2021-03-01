@@ -17,8 +17,9 @@
         <ArticleItem v-bind:cartItemData="art"/>
 
         <!-- Reglage för amount -->
-        <input type="number" v-model.number="art.amount">
-
+        {{art.amount}}
+        <button v-on:click="increaseAmount(art)"> + </button>
+        <button v-on:click="decreaseAmount(art)"> - </button>
       </div>
     </div>
 
@@ -47,7 +48,16 @@ export default {
   },
   methods: {
 
-    onPurchase: function(){ // Säger åt store att köra mutationen onPurchase
+    increaseAmount: function(art) {
+      art.amount ++;
+
+    },
+    decreaseAmount: function(art) {
+      art.amount --;
+
+    },
+
+    onPurchase: function() { // Säger åt store att köra mutationen onPurchase
     
       if (this.user.length == 0) {
 

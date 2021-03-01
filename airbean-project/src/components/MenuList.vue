@@ -25,7 +25,7 @@
       <!-- Printar ut den filtrerade menyn -->
       <div class="menu" v-for="art in filteredArray"  v-bind:key="art.id">
 
-      <!-- Wrapper runt ArticleItem. Har för mig att v-bind och v-on:click kan krocka annars -->
+        <!-- Wrapper runt ArticleItem. Har för mig att v-bind och v-on:click kan krocka annars -->
         <div class="menu">
 
           <!-- Gör så att artikeln zoomas in på om man klickar på den -->
@@ -66,7 +66,7 @@
       </div>
     </div>
 
-  <img class="footer" src="../assets/footer.svg" />
+    <img class="footer" src="../assets/footer.svg" />
   </div>
 </template>
 
@@ -81,7 +81,7 @@ export default {
     return {
 
       showPopup: false,
-      filteredArray: []
+      filteredArray: [] // <--------- NY
     }
   },
 
@@ -111,12 +111,12 @@ export default {
 
       this.showPopup = false;
     },
-    onChange(event) { // filtrerar menyn
+    onChange(event) { // filtrerar menyn <--------- NY
 
+      // filter loopar igenom articles och jämför alla artiklars "rost" med det man valde i dropdown
       this.filteredArray = this.articles.filter(art => art.rost == event.target.value);
 
       // event sker då man väljer ett alternativ i dropdown-menyn
-      // filter loopar igenom articles och jämför alla artiklars "rost" med det man valde i dropdown
     }
   },
   components: {
