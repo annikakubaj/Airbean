@@ -160,6 +160,7 @@ export default new Vuex.Store({
         number: Date.now().toString(),
         total: this.getters.orderSum, // <--- TOG BORT " + 'kr'"
         articles: articles
+
       }
 
       state.cart = [] // Tömmer cart
