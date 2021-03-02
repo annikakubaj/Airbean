@@ -28,7 +28,7 @@
     </h2>
 
     <p class="computed">
-      {{computedPrice}}
+      {{computedPrice}} kr
     </p>
 
 
@@ -99,13 +99,21 @@ export default {
 }
 
 .cart-name{
-  font-size: 20px;
+  font-size: 21px;
   font-family: serif;
   color:rgba(47, 41, 38, 1);
   text-align: left;
   margin:3px 15px;
   font-weight: bold;
 } 
+
+.cart-name:after {
+    clip: rect(0px, 190px, 20px, 0px);
+    content: ".........................................";
+     font-size: medium;
+    font-weight: lighter;
+    opacity: 40%;
+}
 
 .computed{
   font-size: 12px;

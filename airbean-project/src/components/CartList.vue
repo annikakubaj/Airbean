@@ -20,8 +20,11 @@
     </div>
 
     <div v-if="orderSum > 0">
-      
-      <h3>Total {{orderSum}}:-</h3>
+      <div>
+        <h3>Total</h3> 
+        <p class="total">{{orderSum}} kr </p>
+        <p class="info"> inkl moms + drönarleverans</p>
+      </div>
       <button class="cart-button" v-on:click="onPurchase()">Take my money!</button>
     </div>
 
@@ -95,8 +98,30 @@ h3{
   text-align: left;
   margin:70px 0px 0px 15px;
   font-family: serif;
-  font-size: 23px;
+  font-size: 25px;
   color: rgba(47, 41, 38, 1);
+}
+
+h3:after {
+    clip: rect(0px, 200px, 20px, 0px);
+    content: "............................................";
+    font-size: medium;
+    font-weight: lighter;
+    opacity: 40%;
+}
+
+.total{
+  text-align: right;
+  margin: 0px 25px;
+  font-family: serif;
+  font-size:25px;
+  font-weight: bold;
+  color: rgba(47, 41, 38, 1);
+}
+
+.info{
+  font-size: 12px;
+  margin:0px;
 }
 
   .cart{
