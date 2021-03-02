@@ -19,7 +19,7 @@
       </select>
     </div>
     
-    <!-- PRINTAR UT DE VALDA PRODUKTERNA -->
+    <!-- PRINTAR UT DE VALDA PRODUKTERNA IFALL DE FINNS -->
     <div v-if="filteredArray.length > 0">
 
       <!-- Printar ut den filtrerade menyn -->

@@ -57,7 +57,7 @@ export default {
             const person = {name: this.name, email: this.email};
             
             this.$store.commit('saveUser', person) // Säger åt store att köra mutationen saveUser, och skickar med datan
-            this.$router.push("/UserProfile"); // Navigerar till UserProfile
+            this.$router.push("/Status"); // Navigerar till UserProfile
         }
     }
   }

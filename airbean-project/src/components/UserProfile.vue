@@ -38,7 +38,7 @@
                         
                 <div class="rightside">
 
-                    <p> {{new Date().toLocaleString()}}  </p>
+                    <p> {{date}}  </p>
                     <p> {{ord.total}} kr </p>
                 </div>
             
@@ -48,7 +48,6 @@
 
                 <h3 class="total"> Totalt spenderat </h3>
                 <h3 class="sum"> {{totalMoneySpent}} kr </h3> 
-                
             </div>
     
                 
@@ -80,7 +79,19 @@ export default {
     totalMoneySpent: function() { // Hämtar totalMoneySpent från store
 
       return this.$store.getters.totalMoneySpent;
-    }
+    },
+
+    date: function() { // Skär bort sekunder och dylikt från datum
+
+        let rawDate = new Date().toLocaleString();
+        let refinedDate = rawDate.split(" ") 
+        // Stringen som ligger i rawDate har ett mellanslagmellan datumet och tiden (" ").
+
+        // rawDate.split(" ") kapar strängen vid det mellanslaget
+        // och ger refinedDate som är en array med två strängar
+
+        return refinedDate[0] // date laddas in med den första av de två strängarna
+    },
   },
 
 }

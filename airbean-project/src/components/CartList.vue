@@ -12,9 +12,9 @@
 
         <!-- Reglage för amount -->
         <div class="change-amount">
-        <button class="btn" v-on:click="decreaseAmount(art)"> - </button>
-        {{art.amount}}
-        <button class="btn" v-on:click="increaseAmount(art)"> + </button>
+          <button class="btn" v-on:click="decreaseAmount(art)"> - </button>
+          {{art.amount}}
+          <button class="btn" v-on:click="increaseAmount(art)"> + </button>
         </div>
       </div>
     </div>
@@ -66,6 +66,7 @@ export default {
     
       if (this.user.length == 0) {
 
+        this.$store.commit('onPurchase')
         this.$router.push("/MinProfil") // Navigerar till MinProfil
       } else {
 
