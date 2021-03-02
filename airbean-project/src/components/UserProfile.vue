@@ -84,9 +84,13 @@ export default {
     date: function() { // Skär bort sekunder och dylikt från datum
 
         let rawDate = new Date().toLocaleString();
-        let refinedDate = rawDate.split(" ")
+        let refinedDate = rawDate.split(" ") 
+        // Stringen som ligger i rawDate har ett mellanslagmellan datumet och tiden (" ").
 
-        return refinedDate[0]
+        // rawDate.split(" ") kapar strängen vid det mellanslaget
+        // och ger refinedDate som är en array med två strängar
+
+        return refinedDate[0] // date laddas in med den första av de två strängarna
     },
   },
 
