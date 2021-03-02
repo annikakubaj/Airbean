@@ -38,8 +38,8 @@
                         
                 <div class="rightside">
 
-                    <p> datum  </p>
-                    <p> {{ord.total}} </p>
+                    <p> {{new Date().toLocaleString()}}  </p>
+                    <p> {{ord.total}} kr </p>
                 </div>
             
             </div>
