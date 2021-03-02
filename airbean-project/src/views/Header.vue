@@ -6,6 +6,7 @@
         <!-- Visar cart-ikonen ifall man är på meny-sidan -->
         <div v-if="currentRouteName === 'Meny'">
             <img class ="carticon" src="../assets/cart.svg" alt="cart" @click="showCart">
+            <p>{{articlesInCart}}</p>
         </div>
 
         <CartList v-if="show === true"/>
@@ -20,7 +21,7 @@ import CartList from '@/components/CartList.vue'
 
 export default {
     
-    
+    // FIXA RÄKNAREN I CART!!
 
     data: function() {
         return {
@@ -32,6 +33,10 @@ export default {
 
         currentRouteName: function() {
             return this.$route.name;
+        },
+        articlesInCart: function() { // hämtar orderSum från store
+
+            return this.$store.getters.articlesInCart;
         }
     },
     methods: {
