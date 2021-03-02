@@ -1,32 +1,53 @@
 <template>
-    <div>
+    <div class="header">
 
-    <div class ="container">
-    <img class ="header" src="../assets/header.svg" alt="header">
-    <img class ="navicon" src="../assets/navicon.svg" alt="navicon" @click="showNav">
+        <img class ="navicon" src="../assets/navicon.svg" alt="navicon" @click="showNav">
 
+        <!-- Visar cart-ikonen ifall man är på meny-sidan -->
+        <div v-if="currentRouteName === 'Meny'">
+            <img class ="carticon" src="../assets/cart.svg" alt="cart" @click="showCart">
+        </div>
+
+        <CartList v-if="show === true"/>
 
     </div>
-    </div>
-
 </template>
 
 
 <script>
 
+import CartList from '@/components/CartList.vue'
+
 export default {
+    
+    
 
+    data: function() {
+        return {
 
-  
+            show: false
+        }  
+    },
+    computed: {
 
-    methods:{
+        currentRouteName: function() {
+            return this.$route.name;
+        }
+    },
+    methods: {
 
-        showNav: function (){
+        showNav: function() {
             this.$router.push("/nav")
         },
+        showCart: function(){
+            this.show = this.show == true ? false : true;
+        }
+    },
+    components: {
+        CartList
+    } 
 
 
-    }
   
 }
 
@@ -34,25 +55,28 @@ export default {
 
 <style scoped>
 
-.container{
-    height:100px;
-
-}
-
-img{
-    display:flex;
-}
-
 .header{
-    position: absolute;
-  
+    /* background-image repeterar sig själv bakom allt annat */
+    /* Här får den dock ingen möjlighet att repetera, eftersom höjden är inställd på 110 px*/
+    height: 110px;
+    background-image: url("../assets/header.svg");
+
+    display: flex;
+    justify-content: space-between;
 }
 
 .navicon{
-   margin:20px;
-    position: absolute;
-
-    
+    width: 47px;
+    height: 47px;
+    margin: 12px;
 }
+
+.carticon{ 
+    /* shoppingcart-iconen var lite lurig och har en egen inbyggd marginal */
+    /* För att jobba runt det gjorde jag de två bilderna till unika klasser och hanterar dem separat */
+    width: 75px;
+    height: 75px;
+}
+
 
 </style>
