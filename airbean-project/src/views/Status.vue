@@ -11,7 +11,7 @@
 
      <img class="statuslogo" src="../assets/status.svg" alt="statuslogo">
       <h2>Din beställning<br> är på väg!</h2>
-      <p class="countdown"> {{ countDown}} min </p>
+      <p class="countdown"> {{ countDown }} min </p>
 
       
       <button @click= "okCoolBtn"> Ok, cool! </button>
