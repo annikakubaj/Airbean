@@ -1,9 +1,6 @@
 <template>
   <div class>
 
-    <!-- Visar hur många artiklar som ligger i cart -->
-    <h3 class="cart-count">{{articlesInCart}}</h3>
-
     <!-- Modal -->
     <div v-if="showPopup">
       <ArticleModal v-on:killModal="closePopup"/>
@@ -128,17 +125,6 @@ export default {
 </script>
 
 <style scoped>
-
-.cart-count{
-  width: 22px;
-  background-color:rgba(229, 103, 78, 1);
-  border-radius: 50%;
-  position: relative;
-  left:340px;
-  top: -260px;
-  color:white;
-  
-}
 
 label{
   color:rgba(47, 41, 38, 1);

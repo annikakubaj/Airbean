@@ -97,7 +97,7 @@ h2{
 
 h3{
   text-align: left;
-  margin:70px 0px 0px 15px;
+  margin:50px 0px 0px 15px;
   font-family: serif;
   font-size: 25px;
   color: rgba(47, 41, 38, 1);
@@ -118,11 +118,16 @@ h3:after {
   font-size:25px;
   font-weight: bold;
   color: rgba(47, 41, 38, 1);
+  position: relative;
+  top: -28px;
 }
 
 .info{
   font-size: 12px;
-  margin:0px;
+  margin:0px 18px;
+  text-align: left;
+  position: relative;
+  top:-26px;
 }
 
   .cart{

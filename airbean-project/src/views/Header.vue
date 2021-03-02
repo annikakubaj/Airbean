@@ -6,7 +6,7 @@
         <!-- Visar cart-ikonen ifall man är på meny-sidan -->
         <div v-if="currentRouteName === 'Meny'">
             <img class ="carticon" src="../assets/cart.svg" alt="cart" @click="showCart">
-            <p>{{articlesInCart}}</p>
+            <p class="cart-counter">{{articlesInCart}}</p>
         </div>
 
         <CartList v-if="show === true"/>
@@ -81,6 +81,19 @@ export default {
     /* För att jobba runt det gjorde jag de två bilderna till unika klasser och hanterar dem separat */
     width: 75px;
     height: 75px;
+}
+
+.cart-counter{
+  width: 18px;
+  background-color:rgba(229, 103, 78, 1);
+  border-radius: 50%;
+  position: relative;
+  color:white;
+  left:49px;
+  top:-80px;
+  font-size: 15px;
+  
+  
 }
 
 
