@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper">
 
-    <div v-for="ord in orderhistory"  v-bind:key="ord.id">
+    <!-- <div v-for="ord in orderhistory"  v-bind:key="ord.id"> -->
          <div class="ordernummer">
-          <h3>Ordernummer: </h3> <p> {{ord.number}} </p>
-          </div>
+          <h3>Ordernummer: </h3> <p> {{orderhistory[0].number}} </p>
+          
       </div>
 
     
