@@ -9,7 +9,7 @@
             <p class="cart-counter">{{articlesInCart}}</p>
         </div>
 
-        <CartList v-if="show === true"/>
+        <CartList v-if="show === true"/>   
 
     </div>
 </template>
@@ -20,8 +20,6 @@
 import CartList from '@/components/CartList.vue'
 
 export default {
-    
-    // FIXA RÄKNAREN I CART!!
 
     data: function() {
         return {
@@ -34,7 +32,7 @@ export default {
         currentRouteName: function() {
             return this.$route.name;
         },
-        articlesInCart: function() { // hämtar orderSum från store
+        articlesInCart: function() {
 
             return this.$store.getters.articlesInCart;
         }
@@ -44,9 +42,9 @@ export default {
         showNav: function() {
             this.$router.push("/nav")
         },
-        showCart: function(){
+        showCart: function() {
             this.show = this.show == true ? false : true;
-        }
+        },
     },
     components: {
         CartList
@@ -77,7 +75,7 @@ export default {
 }
 
 .carticon{ 
-    /* shoppingcart-iconen var lite lurig och har en egen inbyggd marginal */
+    /* Shoppingcart-iconen var lite lurig och har en egen inbyggd marginal */
     /* För att jobba runt det gjorde jag de två bilderna till unika klasser och hanterar dem separat */
     width: 75px;
     height: 75px;

@@ -6,13 +6,7 @@
 
     <img class ="close" src="../assets/close.svg" alt="close" @click="hideDiv">
     <div>
-      <p> <router-link to="/">Landing</router-link> </p>
-      <p class="line"> _____ </p>
       <p> <router-link to="/meny">Meny</router-link> </p>
-      <p class="line"> _____ </p>
-      <p> <router-link to="/minprofil">Min profil</router-link> </p>
-      <p class="line"> _____ </p>
-      <p> <router-link to="/orderstatus">Orderstatus</router-link> </p>
       <p class="line"> _____ </p>
       <p> <router-link to="/status">Status</router-link> </p>
       <p class="line"> _____ </p>
@@ -21,7 +15,7 @@
       <p> <router-link to="/userprofile"> Inloggad profil </router-link> </p>
     </div>
 
-    </div>
+  </div>
  
 </template>
 

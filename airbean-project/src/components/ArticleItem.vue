@@ -31,7 +31,12 @@
       {{computedPrice}} kr
     </p>
 
-
+    <!-- Reglage för amount -->
+    <div class="change-amount">
+      <button class="btn" v-on:click="decreaseAmount()"> - </button>
+      {{cartItemData.amount}}
+      <button class="btn" v-on:click="increaseAmount()"> + </button>
+    </div>
   </div>
 
 
@@ -46,6 +51,17 @@ export default {
     'articleItemData',
     'cartItemData'
   ],
+  methods: {
+
+    increaseAmount: function() {
+      this.cartItemData.amount ++;
+
+    },
+    decreaseAmount: function() {
+      this.cartItemData.amount --;
+
+    }
+  },
   computed: {
 
     computedPrice: function() {
