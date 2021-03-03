@@ -9,7 +9,7 @@
             <p class="cart-counter">{{articlesInCart}}</p>
         </div>
 
-        <CartList v-if="show === true"/>   
+        <CartList v-on:killModal="showCart" v-if="show === true"/>   
 
     </div>
 </template>
@@ -92,6 +92,27 @@ export default {
   font-size: 15px;
   
   
+}
+
+.close {
+  background-color:  rgba(47, 41, 38, 1);
+  width:30px;
+  height:30px;
+  border-radius: 50%;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close:hover,
+.close:focus {
+  color:white;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 

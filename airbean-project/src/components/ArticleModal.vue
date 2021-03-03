@@ -40,9 +40,8 @@ export default {
 <style scoped>
 /* The Modal (background) */
 .modal {
-  display: block;
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 99; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */

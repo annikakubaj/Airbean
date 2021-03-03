@@ -1,5 +1,9 @@
 <template>
+  <div class="modal">
+
   <div class="cart">
+
+    <span class="close" v-on:click="killModal()">&times;</span>
 
     <h2>Din beställning</h2>
   
@@ -23,6 +27,8 @@
     </div>
 
   </div>
+  </div>
+
 </template>
 
 <script>
@@ -58,7 +64,11 @@ export default {
         this.$store.commit('onPurchase')
         this.$router.push("/Status") // Navigerar till Status
       }
-    }
+    },
+    killModal: function(){
+
+      this.$emit('killModal') 
+    },
   },
   props: [
 
@@ -73,6 +83,42 @@ export default {
 </script>
 
 <style scoped>
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Stay in place */
+  z-index: 99; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.close {
+  background-color:  rgba(47, 41, 38, 1);
+  width:30px;
+  height:30px;
+  border-radius: 50%;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close:hover,
+.close:focus {
+  color:white;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 h2{
   font-family: serif;
@@ -119,8 +165,6 @@ h3:after {
   background-color: white;
   width:350px;
   position: absolute;
-  top: 100px;
-  margin: 0px 13px;
   border-radius: 3px;
   }
 

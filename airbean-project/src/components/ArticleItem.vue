@@ -18,7 +18,7 @@
   </div>
 
   <!-- Skriver ut datan i cart, givet att det finns data i cart -->
-  <div v-if="cartItemData" >
+  <div class="cart-item" v-if="cartItemData" >
     <h2 class="cart-name">
       {{cartItemData.name}}
     </h2>
@@ -29,9 +29,9 @@
 
     <!-- Reglage för amount -->
     <div class="change-amount">
-      <button class="btn" v-on:click="decreaseAmount()"> - </button>
-      {{cartItemData.amount}}
-      <button class="btn" v-on:click="increaseAmount()"> + </button>
+      <img class ="btn-up" src="../assets/up.svg" alt="up" v-on:click="increaseAmount()"> 
+      <p class="amount"> {{cartItemData.amount}} </p>
+      <img class ="btn-down" src="../assets/down.svg" alt="down" v-on:click="decreaseAmount()">
     </div>
   </div>
 
@@ -41,6 +41,11 @@
 </template>
 
 <script>
+
+// MISSION:
+// Fixa mörk grå zon utanför cart-popup
+// Se till att man fortfarande kan stänga cart-popup
+
 export default {
   props: [
 
@@ -110,6 +115,12 @@ export default {
   grid-column-start:2;
 }
 
+.cart-item{
+  margin:15px 0px;
+  display: grid;
+  grid-template-columns: 300px 25px;
+  grid-template-rows: 15px 25px 15px;
+}
 .cart-name{
   font-size: 21px;
   font-family: serif;
@@ -117,21 +128,37 @@ export default {
   text-align: left;
   margin:3px 15px;
   font-weight: bold;
+  grid-row:2;
 } 
 
 .cart-name:after {
     clip: rect(0px, 190px, 20px, 0px);
-    content: ".........................................";
-     font-size: medium;
+    content: ".............................";
+    font-size: medium;
     font-weight: lighter;
     opacity: 40%;
+    grid-row:2;
 }
 
 .computed{
   font-size: 12px;
   text-align: left;
   margin: 3px 15px;
+  grid-row:3;
 }
+
+.amount{
+  font-size: 17px;
+  font-family: serif;
+  color:rgba(47, 41, 38, 1);
+  margin:2px;
+  font-weight:bolder;
+}
+
+.change-amount{
+  grid-column: 2;
+}
+
 
 
 </style>
