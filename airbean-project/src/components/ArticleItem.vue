@@ -1,9 +1,5 @@
 <template>
 <div>
-  <!-- 
-    JAG SKA HÅLLA OCH PRESENTERA DATA
-    ALLA SMARTA FUNCTIONER ETC SKÖTS I MenuList
-  -->
 
   <!-- Skriver ut datan i menyn, givet att det finns data i menyn -->
   <div class="menu" v-if="articleItemData" >

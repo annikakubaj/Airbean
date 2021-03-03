@@ -49,7 +49,7 @@ export default {
 
     onPurchase: function() { // Säger åt store att köra mutationen onPurchase
     
-      if (this.user.length == 0) {
+      if (this.user.length === 0) {
 
         this.$store.commit('onPurchase')
         this.$router.push("/MinProfil") // Navigerar till MinProfil
