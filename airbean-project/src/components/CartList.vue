@@ -119,7 +119,7 @@ h3:after {
   background-color: white;
   width:350px;
   position: absolute;
-  top: 100px;
+  top: 85px;
   margin: 0px 13px;
   border-radius: 3px;
   }
