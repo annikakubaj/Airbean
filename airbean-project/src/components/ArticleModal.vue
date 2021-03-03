@@ -5,10 +5,11 @@
 
     <!-- Krysset i högra hörnet -->
     <span class="close" v-on:click="killModal">&times;</span>
-
-    <button v-on:click="killModal">Okay</button>
-
+    
+    <p class="name">{{selectedItemData.name}}</p>
     {{selectedItemData.info}}
+    <img class ="footer" src="../assets/modal.svg" alt="footer">
+   
   </div>
 
 </div>
@@ -57,21 +58,44 @@ export default {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 22%; /* Could be more or less, depending on screen size */
+  font-size: 15px;
+  line-height: 150%;
+  color: rgba(47, 41, 38, 1);
+  background-image: linear-gradient(white, rgba(243, 228, 225, 1));
+  text-align: left;
 }
 
 /* The Close Button */
 .close {
+  background-color:  rgba(47, 41, 38, 1);
+  width:30px;
+  height:30px;
+  border-radius: 50%;
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color:white;
   text-decoration: none;
   cursor: pointer;
+}
+
+.name{
+  font-family: serif;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.footer{
+  display: flex;
+  margin-left: auto;
 }
 </style>
