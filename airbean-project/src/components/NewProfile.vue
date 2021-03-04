@@ -12,7 +12,7 @@
             <input type="text" v-model="name" required>
 
             <p class="label"> E-post </p>
-            <input type="text" v-model="email" required>
+            <input type="email" v-model="email" required>
 
             <p class="radio"><input class="radio-btn" type="radio"> <label class="radio-label"> GDPR OK! </label></p>
             <input class="button" type="submit" value="Brew me a cup!" v-on:click="saveUser()"> 
