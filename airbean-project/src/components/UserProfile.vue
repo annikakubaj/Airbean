@@ -3,11 +3,15 @@
   
     <img class="profilBild" src="../assets/Profile.svg" alt="profilePicture">
 
-    <div class="profilinfo">
+    <!-- Printar ut namn och mail, givet att det finns en användare -->
+    <div class="profilinfo" v-if="user[0]"> 
             <h2> {{user[0].name}} </h2>
             <p> {{user[0].email}} </p>
     </div>
-          
+
+    <div class="profilinfo" v-if="!user[0]">
+            <h2> Registrera en användare! </h2>
+    </div>
 
   
     <div class="orderhistory">
@@ -32,8 +36,6 @@
                         </div>
                     </div> 
                 </div>
-                            
-                            
                         
                 <div class="rightside">
 
@@ -49,8 +51,6 @@
                 <h3 class="sum"> {{totalMoneySpent}} kr </h3> 
                 
             </div>
-    
-                
     
         </section>
     </div>
@@ -81,7 +81,7 @@ export default {
       return this.$store.getters.totalMoneySpent;
     },
 
-     date: function() { // Skär bort sekunder och dylikt från datum
+    date: function() { // Skär bort sekunder och dylikt från datum
         let rawDate = new Date().toLocaleString();
         let refinedDate = rawDate.split(" ") 
         // Stringen som ligger i rawDate har ett mellanslagmellan datumet och tiden (" ").

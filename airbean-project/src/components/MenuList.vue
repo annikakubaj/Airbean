@@ -1,10 +1,6 @@
 <template>
   <div>
 
-
-    <h1>{{getUser}}</h1>
-
-
     <div class="meny-vy">
 
     <!-- Modal -->

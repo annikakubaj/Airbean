@@ -54,16 +54,9 @@ export default {
   methods: {
 
     onPurchase: function() { // Säger åt store att köra mutationen onPurchase
-    
-      console.log("MEGA")
-      console.log(this.user)
-
-      console.log("MEGA2")
-      console.log(this.cart)
 
       if (this.user.length === 0) {
 
-        this.$store.commit('onPurchase')
         this.$router.push("/MinProfil") // Navigerar till MinProfil
 
 
@@ -76,7 +69,7 @@ export default {
     killModal: function(){
 
       this.$emit('killModal') 
-    },
+    }
   },
   props: [
 

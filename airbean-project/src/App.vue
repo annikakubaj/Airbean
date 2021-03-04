@@ -9,20 +9,15 @@
 
 export default {
 
-  created: function() {
+  created: function() {  // <------ LOCAL STORAGE
 
-    let user = JSON.parse(localStorage.getItem("user")) // Gör om sträng till objekt
+    let user = JSON.parse(localStorage.getItem("user")) // Hämtar user från localStorage
 
-    if (user) {
+    if (user) { // Kollar om det finns en user i localStorage
 
-      console.log("APP, GET ITEM")
-      console.log(user)
-
-      this.$store.commit('loadUser', user)
+      this.$store.commit('onCreatedLoadUser', user) // Muterar in usern i store
     }
-  },
-
-
+  }
 }
 </script>
 

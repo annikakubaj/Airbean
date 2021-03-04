@@ -29,14 +29,20 @@
 
 export default {
 
-  data: function() { 
-    return {
-        name:"",
-        email:"",
-        errors: false
-    }
-  },
-  methods: {
+    data: function() { 
+        return {
+            name:"",
+            email:"",
+            errors: false
+        }
+    },
+    computed: {
+        getCart: function() {
+
+        return this.$store.state.cart
+        }
+    },
+    methods: {
 
     saveUser: function() {
 
@@ -58,6 +64,14 @@ export default {
 
             this.$store.commit('saveUser', person) // Säger åt store att köra mutationen saveUser, och skickar med datan
             this.$router.push("/UserProfile"); // Navigerar till UserProfile
+        }
+
+        if(this.getCart.length > 0) {
+
+            console.log("getCart")
+            console.log(this.getCart)
+
+            this.$store.commit('onPurchase')
         }
     }
   }
