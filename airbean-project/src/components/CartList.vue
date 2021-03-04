@@ -55,10 +55,18 @@ export default {
 
     onPurchase: function() { // Säger åt store att köra mutationen onPurchase
     
+      console.log("MEGA")
+      console.log(this.user)
+
+      console.log("MEGA2")
+      console.log(this.cart)
+
       if (this.user.length === 0) {
 
         this.$store.commit('onPurchase')
         this.$router.push("/MinProfil") // Navigerar till MinProfil
+
+
       } else {
 
         this.$store.commit('onPurchase')

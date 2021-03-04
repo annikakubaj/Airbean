@@ -12,7 +12,11 @@
       <p class="line"> _____ </p>
       <p> <router-link to="/minprofil">Min profil</router-link> </p>
       <p class="line"> _____ </p>
-      <p> <router-link to="/status"> Orderstatus </router-link> </p>
+
+      <div v-if="orderhistory.length > 0">
+        <p> <router-link to="/status"> Orderstatus </router-link> </p>
+      </div>
+
     </div>
 
   </div>
@@ -25,17 +29,25 @@ export default {
 
   data() {
    return{
+
      close: false
    }  
   },
+  computed: {
 
+    orderhistory: function(){ // Hämtar orderhistory från store
+
+      return this.$store.state.orderhistory;
+    }
+  },
   methods:{
 
     hideDiv: function(){
       return this.close= true,
       this.$router.go(-1)
     }
-  }
+  },
+
     
 
 }

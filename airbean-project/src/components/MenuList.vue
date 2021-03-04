@@ -1,6 +1,10 @@
 <template>
   <div>
 
+
+    <h1>{{getUser}}</h1>
+
+
     <div class="meny-vy">
 
     <!-- Modal -->
@@ -85,7 +89,10 @@ export default {
   },
 
   computed: {
+    getUser: function() {
 
+      return this.$store.state.user
+    },
     articles: function(){ // Hämtar menyn från store
 
       return this.$store.state.articles;
@@ -100,6 +107,14 @@ export default {
     addToCart: function(art) { // Ber store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
 
       this.$store.commit('addToCart', art.id)
+
+      const user = localStorage.getItem("user");
+
+        if (user) {
+
+          console.log("MENULIST, GET ITEM, USER")
+          console.log(user)
+        }
     },
     openPopup: function(art){ // Zoomar in på den valda artikeln
 

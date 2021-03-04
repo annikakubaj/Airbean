@@ -167,9 +167,21 @@ export default new Vuex.Store({
       
       state.orderhistory.push(order) // Forslar in objektet i orderhistory
     },
-    saveUser: function (state, payload) {
+    saveUser: function (state, person) {
 
-      state.user.push(payload) // Forslar in artikeln i "cart" i Store
+      state.user.push(person);
+
+      console.log("STORE, SAVE USER, STATE.USER")  
+      console.log(state.user)
+
+      localStorage.setItem("user", JSON.stringify(person)); // Forslar upp i localStorage
+
+      console.log("STORE, SET ITEM, PERSON")
+      console.log(person.name)
+    },
+    loadUser: function(state, user) {
+
+      state.user.push(user);
     }
   },
   actions: {

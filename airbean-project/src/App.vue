@@ -5,6 +5,27 @@
   </div>
 </template>
 
+<script>
+
+export default {
+
+  created: function() {
+
+    let user = JSON.parse(localStorage.getItem("user")) // Gör om sträng till objekt
+
+    if (user) {
+
+      console.log("APP, GET ITEM")
+      console.log(user)
+
+      this.$store.commit('loadUser', user)
+    }
+  },
+
+
+}
+</script>
+
 <style>
 
 * {
