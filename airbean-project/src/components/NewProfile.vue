@@ -66,10 +66,7 @@ export default {
             this.$router.push("/UserProfile"); // Navigerar till UserProfile
         }
 
-        if(this.getCart.length > 0) {
-
-            console.log("getCart")
-            console.log(this.getCart)
+        if(this.getCart.length > 0) { // om man har grejor i cart så går köpet igenom
 
             this.$store.commit('onPurchase')
         }
