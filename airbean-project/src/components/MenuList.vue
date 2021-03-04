@@ -1,5 +1,7 @@
 <template>
-  <div class>
+  <div>
+
+    <div class="meny-vy">
 
     <!-- Modal -->
     <div v-if="showPopup">
@@ -62,7 +64,7 @@
         </div>
       </div>
     </div>
-
+  </div>
     <img class="footer" src="../assets/footer.svg" />
   </div>
 </template>
@@ -126,6 +128,10 @@ export default {
 
 <style scoped>
 
+.meny-vy{
+  height: 510px;
+}
+
 label{
   color:rgba(47, 41, 38, 1);
   font-size: 13px;
@@ -135,8 +141,6 @@ label{
 .drop-down{
   text-align: left;
   margin: 25px 25px 10px;
-
-
 }
 
 select{
@@ -165,7 +169,7 @@ button{
 }
 
 .footer{
-  padding-top: 25px;
+padding-top: 5px;
 }
 
 </style>

@@ -5,14 +5,14 @@
 
 
     <img class ="close" src="../assets/close.svg" alt="close" @click="hideDiv">
-    <div>
+    <div class="container">
       <p> <router-link to="/meny">Meny</router-link> </p>
-      <p class="line"> _____ </p>
-      <p> <router-link to="/status">Status</router-link> </p>
       <p class="line"> _____ </p>
       <p> <router-link to="/vartkaffe">Vårt kaffe</router-link> </p>
       <p class="line"> _____ </p>
-      <p> <router-link to="/userprofile"> Inloggad profil </router-link> </p>
+      <p> <router-link to="/minprofil">Min profil</router-link> </p>
+      <p class="line"> _____ </p>
+      <p> <router-link to="/status"> Orderstatus </router-link> </p>
     </div>
 
   </div>
@@ -44,7 +44,12 @@ export default {
 
 <style scoped>
 
+.container{
+   padding:110px 25px 170px;
+}
+
 .close{
+  padding-top:30px;
   padding-right: 270px;
 }
 
@@ -53,14 +58,10 @@ export default {
   color:rgba(255, 255, 255, 0.2);
 }
 
-hr{
-  width:20%;
-  height:20%
-}
 
 div{
     background-color: rgba(47, 41, 38, 1);
-    padding:25px;
+
 }
 
 p{
