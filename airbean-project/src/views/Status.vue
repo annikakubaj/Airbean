@@ -35,7 +35,7 @@ export default {
         if (value > 0) {
           setTimeout(() => {
             this.countDown--;
-          }, 10000);
+          }, 5000);
         }
       },
       immediate: true
