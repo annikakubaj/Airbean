@@ -5,6 +5,22 @@
   </div>
 </template>
 
+<script>
+
+export default {
+
+  created: function() {  // <------ LOCAL STORAGE
+
+    let user = JSON.parse(localStorage.getItem("user")) // Hämtar user från localStorage
+
+    if (user) { // Kollar om det finns en user i localStorage
+
+      this.$store.commit('onCreatedLoadUser', user) // Muterar in usern i store
+    }
+  }
+}
+</script>
+
 <style>
 
 * {

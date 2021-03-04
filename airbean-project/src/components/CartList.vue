@@ -54,11 +54,12 @@ export default {
   methods: {
 
     onPurchase: function() { // Säger åt store att köra mutationen onPurchase
-    
+
       if (this.user.length === 0) {
 
-        this.$store.commit('onPurchase')
         this.$router.push("/MinProfil") // Navigerar till MinProfil
+
+
       } else {
 
         this.$store.commit('onPurchase')
@@ -68,7 +69,7 @@ export default {
     killModal: function(){
 
       this.$emit('killModal') 
-    },
+    }
   },
   props: [
 

@@ -7,6 +7,9 @@ export default new Vuex.Store({
   
   state: {
 
+    // Jag kommer till "NewProfile" när jag klickar Min Proil i Nav, trots att jag är inloggad
+
+
       articles: [
         {
           id: 1,
@@ -167,9 +170,16 @@ export default new Vuex.Store({
       
       state.orderhistory.push(order) // Forslar in objektet i orderhistory
     },
-    saveUser: function (state, payload) {
+    saveUser: function (state, person) {
 
-      state.user.push(payload) // Forslar in artikeln i "cart" i Store
+      state.user.push(person);
+
+      localStorage.setItem("user", JSON.stringify(person)); // <-------- Forslar upp i localStorage
+
+    },
+    onCreatedLoadUser: function(state, user) { // Körs i created i app
+
+      state.user.push(user);
     }
   },
   actions: {

@@ -85,7 +85,10 @@ export default {
   },
 
   computed: {
+    getUser: function() {
 
+      return this.$store.state.user
+    },
     articles: function(){ // Hämtar menyn från store
 
       return this.$store.state.articles;
@@ -99,12 +102,12 @@ export default {
 
     addToCart: function(art) { // Ber store köra metoden "addToCart" och skickar med ID på artikeln som ska läggas in
 
-      this.$store.commit('addToCart', art.id)
+      this.$store.commit('addToCart', art.id);
     },
     openPopup: function(art){ // Zoomar in på den valda artikeln
 
       this.showPopup = true;
-      this.$store.commit('openPopup', art.id)
+      this.$store.commit('openPopup', art.id); // Ber store köra openPop och skickar med datan
     },
     closePopup: function(){
 
