@@ -90,9 +90,9 @@ export default {
   justify-content: center;
   position: fixed; /* Stay in place */
   z-index: 99; /* Sit on top */
-  left: 0;
+  left:570;
   top: 0;
-  width: 100%; /* Full width */
+  width: 375px; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
@@ -103,6 +103,8 @@ export default {
   background-color:  rgba(47, 41, 38, 1);
   width:30px;
   height:30px;
+  margin-top:10px;
+  margin-right:15px;
   border-radius: 50%;
   color: #aaa;
   float: right;
@@ -165,6 +167,7 @@ h3:after {
   background-color: white;
   width:350px;
   position: absolute;
+  top:80px;
   border-radius: 3px;
   }
 

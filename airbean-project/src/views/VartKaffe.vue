@@ -53,6 +53,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 25px;
+  color:  rgba(47, 41, 38, 1);
 }
 
 h1 {

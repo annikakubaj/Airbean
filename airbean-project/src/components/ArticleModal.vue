@@ -40,11 +40,14 @@ export default {
 <style scoped>
 /* The Modal (background) */
 .modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed; /* Stay in place */
   z-index: 99; /* Sit on top */
-  left: 0;
+  left:570;
   top: 0;
-  width: 100%; /* Full width */
+  width: 375px; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
@@ -57,7 +60,7 @@ export default {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 22%; /* Could be more or less, depending on screen size */
+  width: 90%; /* Could be more or less, depending on screen size */
   font-size: 15px;
   line-height: 150%;
   color: rgba(47, 41, 38, 1);
