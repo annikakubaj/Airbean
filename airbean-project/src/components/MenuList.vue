@@ -129,7 +129,7 @@ export default {
 <style scoped>
 
 .meny-vy{
-  height: 510px;
+  min-height: 400px;
 }
 
 label{
