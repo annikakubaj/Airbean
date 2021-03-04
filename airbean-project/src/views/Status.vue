@@ -82,11 +82,15 @@ export default {
 h2 {
   color: white;
   margin-top: 40px;
+  font-family: serif;
+  font-size: 36px;
 }
 
 p {
   color: white;
   align-self: center;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
 button {
@@ -98,6 +102,8 @@ button {
   font-family: PT serif;
   font-weight: bold;
   font-size: 24px;
+  border: none;
+  margin-top: 30px;
 }
 
 .ordernummer {
@@ -105,7 +111,12 @@ button {
   flex-direction: row;
   color: white;
   margin-bottom: 70px;
+  font-family: sans-serif;
 
+}
+
+.ordernummer > h3 {
+  font-weight: 100;
 }
 
 
