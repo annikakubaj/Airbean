@@ -22,7 +22,8 @@
     <h2 class="cart-name">
       {{cartItemData.name}}
     </h2>
-
+    <div class="dots"></div>
+  
     <p class="computed">
       {{computedPrice}} kr
     </p>
@@ -116,11 +117,27 @@ export default {
 }
 
 .cart-item{
-  margin:15px 0px;
+  margin:10px 0px;
   display: grid;
   grid-template-columns: 300px 25px;
   grid-template-rows: 15px 25px 15px;
+  
 }
+
+.dots{
+  flex:1;
+  border-bottom: 2px dotted #000;
+  grid-row: 2;
+  grid-column: 1;
+  width:70%;
+  margin-right: 10px;
+  justify-self: flex-end;
+  align-self: baseline;
+  font-size: medium;
+  font-weight: lighter;
+  opacity: 40%;
+} 
+
 .cart-name{
   font-size: 21px;
   font-family: serif;
@@ -129,16 +146,10 @@ export default {
   margin:3px 15px;
   font-weight: bold;
   grid-row:2;
-} 
+  grid-column: 1;
+  align-self: baseline;
 
-.cart-name:after {
-    clip: rect(0px, 190px, 20px, 0px);
-    content: ".............................";
-    font-size: medium;
-    font-weight: lighter;
-    opacity: 40%;
-    grid-row:2;
-}
+  } 
 
 .computed{
   font-size: 12px;
