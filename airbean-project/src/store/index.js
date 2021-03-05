@@ -123,7 +123,7 @@ export default new Vuex.Store({
       const art = state.articles.find(art => art.id == payload); // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
       const foundCartItem = state.cart.find(function(cartItem) { return art.id == cartItem.id }) 
 
-      if (foundCartItem){
+      if (foundCartItem) {
 
         // Ökar amount med 1
         foundCartItem.amount ++;  
@@ -138,7 +138,7 @@ export default new Vuex.Store({
         state.cart.push(artCopy)
       }
     },
-    openPopup: function(state, payload){
+    openPopup: function(state, payload) {
       state.popup = []
 
       // Loopar igenom articles och letar efter en artikel vars ID matchar det man klickat på
@@ -169,17 +169,26 @@ export default new Vuex.Store({
       state.cart = [] // Tömmer cart
       
       state.orderhistory.push(order) // Forslar in objektet i orderhistory
+
+      localStorage.setItem("orderhistory", JSON.stringify(state.orderhistory)); // <-------- HÄR
+
     },
     saveUser: function (state, person) {
 
       state.user.push(person);
-
       localStorage.setItem("user", JSON.stringify(person)); // <-------- Forslar upp i localStorage
 
     },
-    onCreatedLoadUser: function(state, user) { // Körs i created i app
+    onCreatedLoadUser: function(state, user) { // Hämtar användare från localStorage vid uppstart. Körs i app.
 
       state.user.push(user);
+    },
+    onCreatedLoadOrderHistory: function(state, orderhistory) { // Hämtar orderhistorik från localStorage vid uppstart. Körs i app.
+
+      orderhistory.forEach(order => {
+
+        state.orderhistory.push(order);
+      });
     }
   },
   actions: {

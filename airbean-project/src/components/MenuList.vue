@@ -113,7 +113,7 @@ export default {
 
       this.showPopup = false;
     },
-    onChange(event) { // filtrerar menyn <--------- NY
+    onChange(event) { // filtrerar menyn
 
       // filter loopar igenom articles och jämför alla artiklars "rost" med det man valde i dropdown
       this.filteredArray = this.articles.filter(art => art.rost == event.target.value);

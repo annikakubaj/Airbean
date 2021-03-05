@@ -33,6 +33,7 @@
                         <div v-if="art.amount > 0"> <!--  Visar bara artikeln ifall amount är mer än 0  -->
 
                            <h3 class="antalochtyp"> {{art.amount}} {{art.name}} </h3>
+                           
                         </div>
                     </div> 
                 </div>

@@ -11,11 +11,20 @@ export default {
 
   created: function() {  // <------ LOCAL STORAGE
 
+    // MINNS USER
     let user = JSON.parse(localStorage.getItem("user")) // Hämtar user från localStorage
 
     if (user) { // Kollar om det finns en user i localStorage
 
       this.$store.commit('onCreatedLoadUser', user) // Muterar in usern i store
+    }
+
+    // MINNS ORDERHISTORIK
+    let orderhistory = JSON.parse(localStorage.getItem("orderhistory")) // Hämtar ANNAN från localStorage
+
+    if (orderhistory) { // Kollar om det finns en orderhistory i localStorage
+
+      this.$store.commit('onCreatedLoadOrderHistory', orderhistory)
     }
   }
 }
